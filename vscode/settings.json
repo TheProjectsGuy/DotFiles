@@ -14,12 +14,39 @@
         "editor.rulers": [70, 90]
     },
     /*
+        Extension: VSCodeVim
+        Ref: https://github.com/VSCodeVim/Vim
+    */
+    // Ignore basic key handles (for convenience)
+    "vim.handleKeys": {
+
+        "<C-d>": true,
+        // Clipboard shortcuts
+        "<C-x>": false,
+        "<C-c>": false,
+        "<C-v>": false,
+        // Side panel
+        "<C-b>": false,
+        // Select all
+        "<C-a>": false,
+        // Indentation
+        "<C-[>": false,
+        "<C-]>": false,
+        // Find
+        "<C-f>": false
+    },
+    // Sync the system clipboard as default register in Vim
+    "vim.useSystemClipboard": true,
+    /*
         Extension: DavidAnson.vscode-markdownlint
         Ref: https://github.com/DavidAnson/vscode-markdownlint#configure
         Rules: https://github.com/DavidAnson/vscode-markdownlint#rules
     */
     "markdownlint.config": {
-        "MD033": false  // Allow inline HTML
+        "MD033": false,  // Allow inline HTML
+        "MD007": {  // Set indentation
+            "indent": 4
+        }
     },
     /*
         Python settings
