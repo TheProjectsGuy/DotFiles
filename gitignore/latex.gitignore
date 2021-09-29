@@ -10,3 +10,5 @@
 # Synchronization file
 *.synctex.gz
 *.synctex
+# Result files
+*.pdf
