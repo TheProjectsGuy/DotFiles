@@ -5,10 +5,12 @@
 *.aux
 *.fdb_latexmk
 *.fls
+*.toc
 # Logging files
 *.log
 # Synchronization file
 *.synctex.gz
 *.synctex
 # Result files
+*.out
 *.pdf
