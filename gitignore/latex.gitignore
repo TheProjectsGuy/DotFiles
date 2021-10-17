@@ -13,6 +13,7 @@
 # Synchronization file
 *.synctex.gz
 *.synctex
+*.synctex(busy)
 # Result files
 *.out
 *.pdf
