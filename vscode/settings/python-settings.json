@@ -32,5 +32,6 @@
         "**/site-packages/**/*.py",
         ".vscode/*.py",
         "Python/tests/**/*.py"
-    ]
+    ],
+    "python.defaultInterpreterPath": "C:\\Users\\Path_to_interpreter"
 }
