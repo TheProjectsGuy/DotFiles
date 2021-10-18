@@ -1,0 +1,13 @@
+/*
+    Extension: DavidAnson.vscode-markdownlint
+    Ref: https://github.com/DavidAnson/vscode-markdownlint#configure
+    Rules: https://github.com/DavidAnson/vscode-markdownlint#rules
+*/
+{
+    "markdownlint.config": {
+        "MD033": false,  // Allow inline HTML
+        "MD007": {  // Set indentation
+            "indent": 4
+        }
+    }
+}

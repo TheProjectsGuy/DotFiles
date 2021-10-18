@@ -1,0 +1,25 @@
+/*
+    Extension: VSCodeVim
+    Ref: https://github.com/VSCodeVim/Vim
+*/
+{
+    // Ignore basic key handles (for convenience)
+    "vim.handleKeys": {
+        "<C-d>": true,
+        // Clipboard shortcuts
+        "<C-x>": false,
+        "<C-c>": false,
+        "<C-v>": false,
+        // Side panel
+        "<C-b>": false,
+        // Select all
+        "<C-a>": false,
+        // Indentation
+        "<C-[>": false,
+        "<C-]>": false,
+        // Find
+        "<C-f>": false
+    },
+    // Sync the system clipboard as default register in Vim
+    "vim.useSystemClipboard": true
+}

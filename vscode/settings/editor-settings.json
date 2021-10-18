@@ -1,0 +1,8 @@
+{
+    // Word wrap
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 80,
+    "files.associations": {
+        ".json": "jsonc"
+    }
+}

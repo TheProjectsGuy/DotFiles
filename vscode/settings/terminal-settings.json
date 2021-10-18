@@ -1,0 +1,32 @@
+{
+    /*
+        Integrated Terminal Editor profiles
+    */
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "PowerShell-Conda": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell",
+            "args": [   // Common practice to have Conda-Init
+                "-NoExit",
+                "-Command", "Conda-Init"
+            ]
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "source": "Git Bash"
+        }
+    },
+    // Setting a default terminal profile (Windows)
+    "terminal.integrated.defaultProfile.windows": "PowerShell-Conda"
+}

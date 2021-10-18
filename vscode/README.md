@@ -13,9 +13,10 @@
 
 The contents of this folder, described in the table below
 
-| File Name | Description |
+| Item Name | Description |
 | :---- | :----- |
-| [settings.json](./settings.json) | A common list of settings that can be used for VSCode. Grouped through comments by extension |
+| [settings](./settings/README.md) folder | A common list of settings that can be used for VSCode. There are `*-settings.json` files for extensions. |
+| [keybindings.json](./keybindings.json) | Custom keyboard shortcuts that can be used with VSCode. |
 
 ## Extensions
 
