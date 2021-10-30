@@ -28,5 +28,6 @@
         }
     },
     // Setting a default terminal profile (Windows)
-    "terminal.integrated.defaultProfile.windows": "PowerShell-Conda"
+    "terminal.integrated.defaultProfile.windows": "PowerShell-Conda",
+    "terminal.integrated.fontFamily": "agave Nerd Font r"
 }

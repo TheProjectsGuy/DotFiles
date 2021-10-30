@@ -38,4 +38,6 @@ Function Conda-Init {
     (& "C:\ProgramData\Anaconda3\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | Invoke-Expression
     #endregion
 }
-
+# ----- Oh My Posh! -----
+Import-Module oh-my-posh
+Set-PoshPrompt -Theme gmay
