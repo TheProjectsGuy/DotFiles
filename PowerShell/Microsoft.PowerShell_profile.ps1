@@ -30,7 +30,7 @@ $env:Path += ";$JavaPath\bin"
 # ========== Installed programs ==========
 # ----- AWS -----
 # Set default AWS user and password
-Initialize-AWSDefaultConfiguration -ProfileName avneesh_admin -Region us-east-1
+# Initialize-AWSDefaultConfiguration -ProfileName avneesh_admin -Region us-east-1
 # ----- Anaconda -----
 Function Conda-Init {
     #region conda initialize
@@ -40,4 +40,5 @@ Function Conda-Init {
 }
 # ----- Oh My Posh! -----
 Import-Module oh-my-posh
-Set-PoshPrompt -Theme gmay
+Set-PoshPrompt -Theme blue-owl
+Import-Module -Name Terminal-Icons
