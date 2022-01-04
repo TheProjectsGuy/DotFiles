@@ -1,0 +1,13 @@
+{
+	// Ref: https://code.visualstudio.com/docs/editor/userdefinedsnippets
+	"Developer shield": {
+		"prefix": ["dev-shield", "devshield", "shield-dev"],
+		"body": [
+			"[![Developer ${0:TheProjectsGuy}][dev-shield]][dev-profile-link]\n",
+			"[dev-shield]: https://img.shields.io/badge/Developer-${0:TheProjectsGuy}-blue",
+			"[dev-profile-link]: https://${1|github,gitlab,bitbucket|}.com/${0:TheProjectsGuy}",
+			""
+		],
+		"description": "Developer shield, defaults to TheProjectsGuy on GitHub"
+	}
+}
