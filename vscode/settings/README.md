@@ -19,6 +19,7 @@ The contents of this folder, described in the table below
 | [python-settings.json](./python-settings.json) | Python settings used in VSCode |
 | [terminal-settings.json](./terminal-settings.json) | Settings for VSCode terminal. Currently includes `Conda-Init` for Windows Powershell only. |
 | [markdownlint-settings.json](./markdownlint-settings.json) | Settings for extension [DavidAnson.vscode-markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) |
+| [latex-workshop.json](./latex-workshop.json) | Settings for [James-Yu.latex-workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) |
 | [vim-settings.json](./vim-settings.json) | Settings for extension [vscodevim.vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) |
 
 ## References

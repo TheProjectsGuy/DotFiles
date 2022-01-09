@@ -1,0 +1,6 @@
+{
+    // Main page: https://github.com/James-Yu/LaTeX-Workshop/wiki
+
+    // Automatically build when you save .tex files
+    "latex-workshop.latex.autoBuild.run": "onSave"
+}
