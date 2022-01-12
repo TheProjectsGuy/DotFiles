@@ -6,6 +6,8 @@ set history=500
 set hlsearch
 " Show matching brackets when text indicator is over them
 set showmatch
+" Show line numbers
+set number
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
