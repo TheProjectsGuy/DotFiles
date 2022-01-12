@@ -6,5 +6,9 @@
         "args": {
             "cwd": "${fileDirname}"
         }
+    },
+    {
+        "key": "ctrl+t ctrl+l",
+        "command": "workbench.action.terminal.clear"
     }
 ]
