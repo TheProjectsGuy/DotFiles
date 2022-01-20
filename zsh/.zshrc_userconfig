@@ -20,4 +20,7 @@ function conda-init() {
     # <<< conda initialize <<<
 }
 
+# == Alias ==
+# Copy to clipboard
 alias cpclip="xclip -i -selection clipboard"
+alias pwdclip="pwd | cpclip"
