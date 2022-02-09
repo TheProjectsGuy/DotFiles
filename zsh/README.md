@@ -8,6 +8,7 @@ Use `zsh`, it is pure bliss.
     - [Table of contents](#table-of-contents)
     - [Tasks](#tasks)
     - [Contents](#contents)
+    - [Anaconda](#anaconda)
 
 ## Tasks
 
@@ -46,3 +47,27 @@ The contents of this folder are summarized as follows
 | [.zshrc_setup](./.zshrc_setup) | The `~/.zshrc` file, upon first setting up ZSH. Use this before installing anything like OMZ! and after installing zsh. You won't have to go through the setup menu anymore. |
 | [MesloLGS NF Regular.ttf](./MesloLGS%20NF%20Regular.ttf) | Font for `agnoster` theme on terminal |
 | [.zshrc_userconfig](./.zshrc_userconfig) | User configurations, you can add this in the end, after everything is set up |
+
+## Anaconda
+
+If using [Anaconda](https://www.anaconda.com/products/individual), the following can be kept in mind
+
+1. Refer to the `conda-init` method of initializing anaconda in [.zshrc_userconfig](./.zshrc_userconfig) file
+2. Use the [conda-zsh-completion](https://github.com/esc/conda-zsh-completion) plugin
+
+    ```bash
+    cd $ZSH_CUSTOM/plugins
+    git clone https://github.com/esc/conda-zsh-completion
+    ```
+
+    In the `~/.zshrc` file, do the following
+
+    ```bash
+    plugins=( ... conda-zsh-completion)
+    ```
+
+    And then run
+
+    ```bash
+    source ~/.zshrc
+    ```
