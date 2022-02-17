@@ -15,6 +15,7 @@
         Reference: https://code.visualstudio.com/docs/python/settings-reference
     */
     "python.analysis.extraPaths": [
+        "${workspaceFolder}",   // https://code.visualstudio.com/docs/editor/variables-reference
         "C:\\Users\\User\\Python_path_to_add",
         "C:\\Users\\User\\Another_python_path_to_add"
     ],
