@@ -8,6 +8,8 @@ Use `zsh`, it is pure bliss.
     - [Table of contents](#table-of-contents)
     - [Tasks](#tasks)
     - [Contents](#contents)
+    - [Extra links](#extra-links)
+    - [Anaconda](#anaconda)
 
 ## Tasks
 
@@ -51,3 +53,27 @@ The contents of this folder are summarized as follows
 
 - [LS_COLORS](https://www.howtogeek.com/307899/how-to-change-the-colors-of-directories-and-files-in-the-ls-command/)
 - Convert files from CRLF to LF using `dos2unix`, recursively done [here](https://unix.stackexchange.com/a/279818/456203)
+
+## Anaconda
+
+If using [Anaconda](https://www.anaconda.com/products/individual), the following can be kept in mind
+
+1. Refer to the `conda-init` method of initializing anaconda in [.zshrc_userconfig](./.zshrc_userconfig) file
+2. Use the [conda-zsh-completion](https://github.com/esc/conda-zsh-completion) plugin
+
+    ```bash
+    cd $ZSH_CUSTOM/plugins
+    git clone https://github.com/esc/conda-zsh-completion
+    ```
+
+    In the `~/.zshrc` file, do the following
+
+    ```bash
+    plugins=( ... conda-zsh-completion)
+    ```
+
+    And then run
+
+    ```bash
+    source ~/.zshrc
+    ```

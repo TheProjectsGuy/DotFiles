@@ -4,5 +4,7 @@
     "editor.wordWrapColumn": 80,
     "files.associations": {
         ".json": "jsonc"
-    }
+    },
+    // Bracket pair colorizer: https://code.visualstudio.com/blogs/2021/09/29/bracket-pair-colorization
+    "editor.bracketPairColorization.enabled": true
 }
