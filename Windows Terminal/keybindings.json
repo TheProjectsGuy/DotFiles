@@ -1,0 +1,25 @@
+// Edit the windows terminal settings as JSON
+{
+    "actions": 
+    [
+        // WSL Ubuntu: Split planes like terminator
+        {
+            "command":
+            {
+                "action": "splitPane",
+                "profile": "Ubuntu",
+                "split": "horizontal"
+            },
+            "keys": "ctrl+shift+o"
+        },
+        {
+            "command":
+            {
+                "action": "splitPane",
+                "profile": "Ubuntu",
+                "split": "vertical"
+            },
+            "keys": "ctrl+shift+e"
+        }
+    ]
+}

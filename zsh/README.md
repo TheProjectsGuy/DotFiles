@@ -46,3 +46,8 @@ The contents of this folder are summarized as follows
 | [.zshrc_setup](./.zshrc_setup) | The `~/.zshrc` file, upon first setting up ZSH. Use this before installing anything like OMZ! and after installing zsh. You won't have to go through the setup menu anymore. |
 | [MesloLGS NF Regular.ttf](./MesloLGS%20NF%20Regular.ttf) | Font for `agnoster` theme on terminal |
 | [.zshrc_userconfig](./.zshrc_userconfig) | User configurations, you can add this in the end, after everything is set up |
+
+## Extra links
+
+- [LS_COLORS](https://www.howtogeek.com/307899/how-to-change-the-colors-of-directories-and-files-in-the-ls-command/)
+- Convert files from CRLF to LF using `dos2unix`, recursively done [here](https://unix.stackexchange.com/a/279818/456203)
