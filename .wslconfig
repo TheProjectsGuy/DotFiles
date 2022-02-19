@@ -1,0 +1,2 @@
+[wsl2]
+memory=10GB # Limits memory to 10 GB
