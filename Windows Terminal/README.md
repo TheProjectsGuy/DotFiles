@@ -20,3 +20,7 @@ The following are the contents of this folder
 | S. No. | Item | Description |
 | :--- | :---- | :----- |
 | 1 | [keybindings.json](./keybindings.json) | Keyboard shortcuts (associated with actions) for Windows Terminal |
+
+## References
+
+- https://docs.microsoft.com/en-us/windows/terminal/panes

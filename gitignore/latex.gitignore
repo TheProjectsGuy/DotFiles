@@ -8,6 +8,7 @@
 *.toc
 *.lof
 *.lol
+*.lot
 # Logging files
 *.log
 # Synchronization file
@@ -23,3 +24,6 @@
 *.bbl
 *.bcf
 *.blg
+
+# Include result
+#!main.pdf
