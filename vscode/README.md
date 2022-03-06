@@ -39,5 +39,6 @@ A list of my commonly used extensions
 | [CoenraadS.bracket-pair-colorizer-2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2) | Shows beautiful brackets which are easier to read. Now, VSCode [natively has this](https://code.visualstudio.com/blogs/2021/09/29/bracket-pair-colorization) |
 | [vscode-icons-team.vscode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons) | Icons for folders and other entities |
 | [Gruntfuggly.todo-tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree) | List TODO items in a sidebar |
+| [znck.grammarly](https://marketplace.visualstudio.com/items?itemName=znck.grammarly) | Grammarly integration for proper writing |
 | [bierner.markdown-emoji](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-emoji) | Emojis in Markdown (works in preview, GitHub) |
 | [amazonwebservices.aws-toolkit-vscode](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-toolkit-vscode) | AWS tools |
