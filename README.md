@@ -8,4 +8,4 @@ All common entries in files like `.gitignore`.
 
 ## GitHub
 
-- Sign keys using GPG
+Sign keys using GPG
