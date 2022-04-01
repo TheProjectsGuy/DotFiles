@@ -67,3 +67,70 @@ On Windows, do the following
     ```
 
 That's it, try this with a test commit and see the `Verified` badge beside it on GitHub :tada:
+
+> **WIP**: Not working currently for WSL
+
+For **WSL**, do the following (assuming Ubuntu WSL)
+
+1. Verify existing keys and program
+
+    ```bash
+    gpg --list-secret-keys --keyid-format=long
+    which gpg
+    ```
+
+    The above should create a `~/.gnupg` folder
+
+2. Verify that `git` configurations do not already have something setup
+
+    ```bash
+    git config --global -l
+    ```
+
+3. Generate a new key
+
+    Start the utility
+
+    ```bash
+    gpg --full-generate-key
+    ```
+
+    Select any algorithm (RSA works) and make sure the keysize is 4096. You may set a passphrase.
+
+4. Get the key
+
+    List them all
+
+    ```bash
+    gpg --list-secret-keys --keyid-format=long
+    ```
+
+    Get a particular key (assuming ID - after `algo/` in `sec` line - is `3AA5C34371567BD2`)
+
+    ```bash
+    gpg --armor --export 3AA5C34371567BD2
+    ```
+
+    Copy the output to clipboard
+
+5. Open GitHub and go to [GPG key settings](https://github.com/settings/keys), and add a GPG key. Paste the contents of the clipboard (from the previous step).
+
+6. Configure `git` locally to use gpg
+
+    Automatically sign commits
+
+    ```bash
+    git config --global commit.gpgsign true
+    ```
+
+    Set the path
+
+    ```bash
+    git config --global gpg.program `which gpg`
+    ```
+
+    Verify
+
+    ```bash
+    git config --global -l
+    ```
