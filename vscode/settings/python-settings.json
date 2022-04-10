@@ -7,6 +7,7 @@
         Ref: https://code.visualstudio.com/docs/getstarted/settings#_languagespecific-editor-settings
     */
     "[python]": {
+        // See: https://peps.python.org/pep-0008/#maximum-line-length
         "editor.wordBasedSuggestions": false,
         "editor.rulers": [70, 90]
     },
