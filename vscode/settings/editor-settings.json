@@ -6,5 +6,15 @@
         ".json": "jsonc"
     },
     // Bracket pair colorizer: https://code.visualstudio.com/blogs/2021/09/29/bracket-pair-colorization
-    "editor.bracketPairColorization.enabled": true
+    "editor.bracketPairColorization.enabled": true,
+    // Settings for some languages
+    // Dockerfile
+    "[dockerfile]": {
+        "editor.rulers": [80]
+    },
+    // Bash scripts
+    "[shellscript]": {
+        "files.eol": "\n",
+        "editor.rulers": [75, 80]
+    }
 }
