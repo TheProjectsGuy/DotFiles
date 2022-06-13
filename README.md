@@ -11,3 +11,4 @@ Common stuff I need to keep in one place.
 ## New machine
 
 - If using multiple systems and want to share keyboard and mouse, use [barrier](https://github.com/debauchee/barrier/).
+- Monitoring usage using [gotop](https://github.com/xxxserxxx/gotop) is amazing. You may have to [fix version issue](https://github.com/xxxserxxx/gotop/issues/212#issuecomment-1153896038).
