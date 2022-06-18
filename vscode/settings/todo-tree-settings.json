@@ -1,0 +1,21 @@
+{
+    // From https://github.com/Gruntfuggly/todo-tree
+    // Put in the main settings (user)
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]",
+        "DEBUG",
+        "NOW"
+    ],
+    "todo-tree.highlights.customHighlight": {
+        "DEBUG": {
+            "foreground": "#808080",
+            // "background": "#000"
+        }
+    }
+}

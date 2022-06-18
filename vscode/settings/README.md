@@ -21,6 +21,8 @@ The contents of this folder, described in the table below
 | [markdownlint-settings.json](./markdownlint-settings.json) | Settings for extension [DavidAnson.vscode-markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) |
 | [latex-workshop.json](./latex-workshop.json) | Settings for [James-Yu.latex-workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) |
 | [vim-settings.json](./vim-settings.json) | Settings for extension [vscodevim.vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) |
+| [todo-tree-settings.json](./todo-tree-settings.json) | Settings for extension [Gruntfuggly.todo-tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree) |
+| [todo-highlight-settings.json](./todo-highlight-settings.json) | Settings for extension [wayou.vscode-todo-highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight) |
 
 ## References
 
