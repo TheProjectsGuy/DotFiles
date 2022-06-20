@@ -25,6 +25,10 @@ function conda-init() {
 alias cpclip="xclip -i -selection clipboard"
 alias pwdclip="pwd | cpclip"
 
+# == ZSH configurations ==
+# Clear history menu using Esc
+bindkey -M menuselect -s '^[' '^G^_'
+
 # ==== Configurations ====
 # Terminal colors (for tmux)
 #    From: https://github.com/zsh-users/zsh-autosuggestions/issues/229#issuecomment-300675586
