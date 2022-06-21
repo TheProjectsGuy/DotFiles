@@ -28,13 +28,14 @@ Use `zsh`, it is pure bliss.
     ```
 
 4. Use `agnoster` theme, use the font `MesloLGS Regular`
-5. Install plugins [zsh-autocomplete](https://github.com/marlonrichert/zsh-autocomplete) (new!), [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions), and [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+5. Install plugins [zsh-autocomplete](https://github.com/marlonrichert/zsh-autocomplete) (new! - may not work everywhere), [zsh-z](https://github.com/agkozak/zsh-z), [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions), and [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
     ```sh
     cd $ZSH_CUSTOM/plugins/
     git clone https://github.com/marlonrichert/zsh-autocomplete
     git clone https://github.com/zsh-users/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting
+    git clone https://github.com/agkozak/zsh-z
     ```
 
     Then, in the `~/.zshrc`, list these under `plugins=(...)`
