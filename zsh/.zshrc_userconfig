@@ -33,3 +33,27 @@ bindkey -M menuselect -s '^[' '^G^_'
 # Terminal colors (for tmux)
 #    From: https://github.com/zsh-users/zsh-autosuggestions/issues/229#issuecomment-300675586
 export TERM=xterm-256color
+
+# == Ada settings ==
+# Username on ada
+export USER_ADA="avneesh.mishra"
+export USER_RRC="avneesh.mishra"
+# Quick ssh into ada
+alias ada_ssh="ssh_ada -X $USER_ADA@ada"
+# Aliases for tunneling SSH connections to Ada (sync with VSCode config file)
+export VSCODE_SSH_CONFIG="$HOME/.ssh/config.vscode"
+alias link-ada="ssh -L 51000:localhost:22 $USER_ADA@ada"
+function link-gnode() {
+    if [[ "$2" ]]; then
+        port_num=$2
+    else
+        port_num=60000
+    fi
+    gnode_name="gnode$(printf '%03d' $1)"
+    echo -ne "\e[0;36m"
+    echo ssh -L ${port_num}:localhost:22 -X -J $USER_ADA@ada $USER_ADA@$gnode_name
+    echo -ne "\e[0m"
+    ssh -L ${port_num}:localhost:22 -X -J $USER_ADA@ada $USER_ADA@$gnode_name
+    ecode=$?
+    echo "SSH Connection ended - exit code $ecode"
+}
