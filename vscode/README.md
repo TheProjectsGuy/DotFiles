@@ -8,6 +8,7 @@
     - [Table of contents](#table-of-contents)
     - [Contents](#contents)
     - [Extensions](#extensions)
+    - [References](#references)
 
 ## Contents
 
@@ -44,3 +45,10 @@ A list of my commonly used extensions
 | [znck.grammarly](https://marketplace.visualstudio.com/items?itemName=znck.grammarly) | Grammarly integration for proper writing |
 | [bierner.markdown-emoji](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-emoji) | Emojis in Markdown (works in preview, GitHub) |
 | [amazonwebservices.aws-toolkit-vscode](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-toolkit-vscode) | AWS tools |
+
+## References
+
+- Settings [variable reference](https://code.visualstudio.com/docs/editor/variables-reference)
+- [Debugging](https://code.visualstudio.com/docs/editor/debugging)
+- [Terminal basics](https://code.visualstudio.com/docs/terminal/basics)
+    - [Clear terminal keybinding](https://code.visualstudio.com/docs/terminal/basics#_why-is-cmdkctrlk-not-clearing-the-terminal)
