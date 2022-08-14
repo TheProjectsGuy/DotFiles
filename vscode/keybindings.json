@@ -8,7 +8,14 @@
         }
     },
     {
+        // I prefer not to use this
         "key": "ctrl+t ctrl+l",
         "command": "workbench.action.terminal.clear"
+    },
+    {
+        // https://code.visualstudio.com/docs/terminal/basics#_why-is-cmdkctrlk-not-clearing-the-terminal
+        "key": "ctrl+l",
+        "command": "workbench.action.terminal.clear",
+        "when": "terminalFocus"
     }
 ]
