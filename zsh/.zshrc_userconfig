@@ -49,9 +49,14 @@ function link-gnode() {
     else
         port_num=60000
     fi
+    if [[ "$3" ]]; then
+        src_port=$3
+    else
+        src_port=22
+    fi
     gnode_name="gnode$(printf '%03d' $1)"
     echo -ne "\e[0;36m"
-    echo ssh -L ${port_num}:localhost:22 -X -J $USER_ADA@ada $USER_ADA@$gnode_name
+    echo ssh -L ${port_num}:localhost:${src_port} -X -J $USER_ADA@ada $USER_ADA@$gnode_name
     echo -ne "\e[0m"
     ssh -L ${port_num}:localhost:22 -X -J $USER_ADA@ada $USER_ADA@$gnode_name
     ecode=$?
