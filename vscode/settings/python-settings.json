@@ -35,5 +35,10 @@
         ".vscode/*.py",
         "Python/tests/**/*.py"
     ],
-    "python.defaultInterpreterPath": "C:\\Users\\Path_to_interpreter"
+    "python.defaultInterpreterPath": "C:\\Users\\Path_to_interpreter",
+    // Increase the limit for rendering number of lines
+    /*
+        Ref: https://stackoverflow.com/a/72837463/5836037
+    */
+    "notebook.output.textLineLimit": 50
 }
