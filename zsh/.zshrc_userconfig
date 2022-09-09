@@ -55,10 +55,11 @@ function link-gnode() {
         src_port=22
     fi
     gnode_name="gnode$(printf '%03d' $1)"
+    ssh_str="ssh -L ${port_num}:localhost:${src_port} -X -J $USER_ADA@ada $USER_ADA@$gnode_name"
     echo -ne "\e[0;36m"
-    echo ssh -L ${port_num}:localhost:${src_port} -X -J $USER_ADA@ada $USER_ADA@$gnode_name
+    echo $ssh_str
     echo -ne "\e[0m"
-    ssh -L ${port_num}:localhost:22 -X -J $USER_ADA@ada $USER_ADA@$gnode_name
+    eval $ssh_str
     ecode=$?
     echo "SSH Connection ended - exit code $ecode"
 }
