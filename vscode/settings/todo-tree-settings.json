@@ -17,5 +17,7 @@
             "foreground": "#808080",
             // "background": "#000"
         }
-    }
+    },
+    // In case you want to use the highlighting of todo-highlight
+    "todo-tree.highlights.enabled": false
 }
