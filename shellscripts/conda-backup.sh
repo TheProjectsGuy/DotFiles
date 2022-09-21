@@ -21,10 +21,15 @@
 
 readonly DEFAULT_BACKUP_FOLDER="$HOME/conda_env_backups"
 readonly DEFAULT_CONDA_BIN="$HOME/anaconda3/bin"
+readonly DEFAULT_BACKUP_PREFIX="backup"
 
 readonly VERSION_MAJOR=1
-readonly VERSION_MINOR=5
+readonly VERSION_MINOR=6
 VERSION="$VERSION_MAJOR.$VERSION_MINOR"
+
+backup_fname_prefix=$1
+conda_env_name=$2
+
 
 # ---- Output formats ----
 # Rules:
@@ -81,10 +86,17 @@ if [[ -z $conda_bin ]]; then
         exit 1
     fi
 fi
+backup_prefix=$backup_fname_prefix
+if [[ -z $backup_prefix ]]; then
+    echo_debug "No prefix passed, using $DEFAULT_BACKUP_PREFIX"
+    backup_prefix=$DEFAULT_BACKUP_PREFIX
+else
+    echo_debug "Using prefix $backup_prefix"
+fi
 echo_debug "Using conda: $conda_bin"
 # Conda environment
-if [[ -n "$1" ]]; then
-    conda_env="$1"
+if [[ -n "$conda_env_name" ]]; then
+    conda_env="$conda_env_name"
 else
     if [[ -n "$CONDA_DEFAULT_ENV" ]]; then
         conda_env="$CONDA_DEFAULT_ENV"
@@ -103,7 +115,7 @@ if [[ ! -d $backup_folder ]]; then
 fi
 echo_debug "Backing up in folder - $backup_folder"
 cd $backup_folder
-backup_file=backup_$(date +"%d_%b_%Y_%k_%M_%S").yml
+backup_file=${backup_prefix}_$(date +"%d_%b_%Y_%k_%M_%S").yml
 echo_info "Using file name $backup_file"
 
 # ===== Main backup =====
