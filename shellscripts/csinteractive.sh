@@ -19,7 +19,7 @@
 # using `srun`. Check usage using [-h|--help].
 
 readonly VERSION_MAJOR=1
-readonly VERSION_MINOR=5
+readonly VERSION_MINOR=6
 VERSION="$VERSION_MAJOR.$VERSION_MINOR"
 
 readonly ARGS="$@"  # Reset using https://stackoverflow.com/a/4827707
@@ -31,6 +31,7 @@ readonly DEF_PARTITION=long
 readonly DEF_ACCOUNT=research
 readonly DEF_JOB_NAME=interactive
 readonly DEF_NUM_GPUS=0
+readonly DEF_NUM_NODES=1
 readonly DEF_TIME_PERIOD="6:00:00"
 readonly DEF_USER_SHELL=bash
 
@@ -100,6 +101,7 @@ echo_debug "Using shell $SHELL_PATH"
 # Parameters for job allocation
 NUM_CPUS=$DEF_NUM_CPUS           # Number of CPUs
 NUM_GPUS=$DEF_NUM_GPUS           # Number of GPUs
+NUM_NODES=$DEF_NUM_NODES         # Number of Nodes on HPC
 TIME_PERIOD=$DEF_TIME_PERIOD     # Time for the script
 JOB_NAME=$DEF_JOB_NAME           # Job name
 PARTITION=$DEF_PARTITION         # Partition
@@ -132,6 +134,8 @@ All optional arguments:
                             (Default: $DEF_NUM_CPUS)
     -g | --gpu              Number of GPUs to request
                             (Default: $DEF_NUM_GPUS)
+    -N | --nodes            Number of nodes for 'salloc' allocation
+                            (Default: $DEF_NUM_NODES)
     -r | --reservation      Reservation (account is also set to same name)
     -a | --account          Account name (can also come after -r)
                             (Default: $DEF_ACCOUNT)
@@ -192,6 +196,13 @@ function parse_options () {
                 shift
                 echo_debug "Using $num_gpus GPUs"
                 NUM_GPUS=$num_gpus
+                ;;
+            # Number of nodes
+            "--nodes" | "-N")
+                num_nodes=$1
+                shift
+                echo_debug "Using $num_nodes nodes on HPC"
+                NUM_NODES=$num_nodes
                 ;;
             # Reservation
             "--reservation" | "-r")
@@ -298,8 +309,9 @@ function parse_options () {
                     exit 127
                 fi
                 squeue_cmd="$squeue_bin -w $nodelist"
+                squeue_cmd="$squeue_cmd -o \"%.10i %.15j %.3t %.10M %.4C  %20S %9g %.7m  %N(%r)\""
                 echo_command $squeue_cmd
-                $squeue_cmd
+                eval $squeue_cmd
                 echo ""
                 # Show the pestat output
                 readonly pestat_bin=$(which pestat 2> /dev/null)
@@ -309,7 +321,7 @@ function parse_options () {
                 fi
                 pestat_cmd="$pestat_bin -w $nodelist"
                 echo_command $pestat_cmd
-                $pestat_cmd
+                eval $pestat_cmd
                 echo ""
                 # Show the sinfo output
                 readonly sinfo_bin=$(which sinfo 2> /dev/null)
@@ -318,11 +330,11 @@ function parse_options () {
                     exit 127
                 fi
                 of="Partition:12,Time:12,StateCompact:8,Gres:8,\
-                    GresUsed:10,CPUsState:.15"
+                    GresUsed:10,CPUsState:.15,NodeList:.20"
                 of=$(echo $of | tr -d '[:space:]')
                 sinfo_cmd="$sinfo_bin -n $nodelist -O $of"
                 echo_command $sinfo_cmd
-                $sinfo_cmd
+                eval $sinfo_cmd
                 echo ""
                 # Exit
                 echo_debug "Information display completed"
@@ -347,6 +359,8 @@ function create_salloc_opts () {
     SALLOC_OPTS="$SALLOC_OPTS -p $PARTITION"
     # Account
     SALLOC_OPTS="$SALLOC_OPTS -A $ACCOUNT"
+    # Number of nodes
+    SALLOC_OPTS="$SALLOC_OPTS -N $NUM_NODES"
     # If there is a reservation
     if [[ -n $RESERVATION ]]; then
         SALLOC_OPTS="$SALLOC_OPTS --reservation=$RESERVATION"
