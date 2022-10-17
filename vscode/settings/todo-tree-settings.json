@@ -21,6 +21,7 @@
     // In case you want to use the highlighting of todo-highlight
     "todo-tree.highlights.enabled": false,
     // In case you want to include LaTeX comments (%) in TODO
+    //  From: https://github.com/Gruntfuggly/todo-tree/issues/129
     "todo-tree.regex.regex": "(%|//|#|<!--|;|/\\*|^|^[ \\t]*(-|\\d+.))\\s*($TAGS)",
     // Auto-refresh tree
     "todo-tree.tree.autoRefresh": true
