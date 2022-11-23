@@ -19,6 +19,7 @@ The contents of this folder, described in the table below
 | [settings](./settings/README.md) folder | A common list of settings that can be used for VSCode. There are `*-settings.json` files for extensions. |
 | [keybindings.json](./keybindings.json) | Custom keyboard shortcuts that can be used with VSCode. |
 | [snippets](./snippets/) | [User defined snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets) for VSCode |
+| [debug-tasks](./debug-tasks/) | Files for debugger and task creation in VSCode |
 
 ## Extensions
 

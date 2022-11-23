@@ -1,0 +1,16 @@
+{
+    // See https://code.visualstudio.com/docs/editor/debugging#_launch-configurations
+    "version": "0.2.0",
+    "configurations": [
+        {
+        }
+    ],
+    // See https://code.visualstudio.com/docs/editor/variables-reference#_input-variables
+    "inputs": [
+    ]
+}
+
+/*
+ * Place this file in the `.vscode` folder for work (and remove this comment)
+ * For Python, use "module": "..." for running things in `-m` mode
+ */
