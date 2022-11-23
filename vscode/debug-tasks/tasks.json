@@ -12,4 +12,7 @@
 
 /*
  * Place this file in the `.vscode` folder for work (and remove this comment)
+ * VSCode commands (complete) list at "Preferences: Default Keyboard Shortcuts (JSON)"
+ *      From: https://stackoverflow.com/a/58379883/5836037
+ * Command to get current python interpreter: 'python.interpreterPath'
  */
