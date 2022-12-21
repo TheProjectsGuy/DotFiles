@@ -28,3 +28,7 @@ set tabstop=4
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
+
+" Scroll offset when scrolling
+"   From: https://stackoverflow.com/a/26915653
+set scrolloff=4

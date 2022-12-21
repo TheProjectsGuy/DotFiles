@@ -26,6 +26,10 @@ Configure the editor on Linux machines using
     update-alternatives --display editor
     sudo update-alternatives --config editor
 
+Notes:
+
+- Put the neovim init files in `~/.config/nvim` (for CLI) and `~/.config/nvim-qt` (for GUI) and name them as `init.vim`
+
 ************
 References
 ************
