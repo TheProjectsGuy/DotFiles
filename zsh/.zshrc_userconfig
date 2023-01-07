@@ -52,6 +52,13 @@ function link-gnode() {
         src_port=22
     fi
     gnode_name="gnode$(printf '%03d' $1)"
+    # Remove from list of known hosts (to avoid conflicts)
+    rmh_str="ssh-keygen -f $HOME/.ssh/known_hosts -R \"[localhost]:$port_num\""
+    echo -ne "\e[0;36m"
+    echo $rmh_str
+    echo -ne "\e[0m"
+    eval $rmh_str
+    # Connect through SSH
     ssh_str="ssh -L ${port_num}:localhost:${src_port} -X -J $USER_ADA@ada $USER_ADA@$gnode_name"
     echo -ne "\e[0;36m"
     echo $ssh_str
