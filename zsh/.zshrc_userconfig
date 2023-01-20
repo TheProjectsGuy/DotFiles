@@ -87,6 +87,24 @@ function conda-init() {
     unset __conda_setup
     # <<< conda initialize <<<
 }
+# Link library of conda environment
+function conda-ld-link() {
+    # Can also add to $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+    # This file is run every time there is an environment activated
+    if [[ $CONDA_PREFIX ]]; then
+        echo "Adding 'lib' for $CONDA_PREFIX environment"
+        lib_path=$CONDA_PREFIX/lib
+        if [[ $LD_LIBRARY_PATH == *"$lib_path"* ]]; then
+            echo "Path $lib_path already in LD_LIBRARY_PATH"
+        else
+            export LD_LIBRARY_PATH=$lib_path${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+        fi
+        echo "LD_LIBRARY_PATH contains:"
+        echo "- $LD_LIBRARY_PATH" | sed "s/:/\n- /g"
+    else
+        echo "No conda environment is active"
+    fi
+}
 # ------------------------------------------------------------
 
 # -------- RubyGems installation ----------
