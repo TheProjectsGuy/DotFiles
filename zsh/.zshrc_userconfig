@@ -10,7 +10,10 @@ bindkey -M menuselect -s '^[' '^G^_'
 # Personal binaries
 export PATH=$PATH:$HOME/bin
 # CUDA
-export PATH=$PATH:/usr/local/cuda/bin
+export CUDA_INSTALL_PATH=/usr/local/cuda
+export PATH=$PATH:$CUDA_INSTALL_PATH/bin
+#  Substitution: https://pubs.opengroup.org/onlinepubs/9699919799.2018edition/utilities/V3_chap02.html#tag_18_06_02
+export LD_LIBRARY_PATH=$CUDA_INSTALL_PATH/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 # Python Poetry
 export PATH=$PATH:$HOME/.local/bin
 # -------------------------
