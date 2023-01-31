@@ -11,3 +11,4 @@ Use [obsidian](https://obsidian.md/) to take notes. This is especially helpful i
 | :----- | :--- | :---------- |
 | 1 | [oliveryh/obsidian-emoji-toolbar](https://github.com/oliveryh/obsidian-emoji-toolbar) | Emoji input for Obsidian notes. Create a shortcut for `Ctrl + Shift + <Space>` for quick access |
 | 2 | [jamiebrynes7/obsidian-todoist-plugin](https://github.com/jamiebrynes7/obsidian-todoist-plugin) | Integrate Todoist with Obsidian. |
+| 3 | [remotely-save/remotely-save](https://github.com/remotely-save/remotely-save) | An **unofficial** sync app for Obsidian (tested with Dropbox) |
