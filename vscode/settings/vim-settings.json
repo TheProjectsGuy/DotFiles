@@ -18,7 +18,9 @@
         "<C-[>": false,
         "<C-]>": false,
         // Find
-        "<C-f>": false
+        "<C-f>": false,
+        // Find symbol
+        "<C-t>": false
     },
     // Sync the system clipboard as default register in Vim
     "vim.useSystemClipboard": true
