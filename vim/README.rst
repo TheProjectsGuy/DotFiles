@@ -26,6 +26,15 @@ Configure the editor on Linux machines using
     update-alternatives --display editor
     sudo update-alternatives --config editor
 
+If you want the latest build of neovim, add the following (`reference <https://vi.stackexchange.com/a/25200>`_)
+
+.. code-block:: bash
+
+    # Add PPA
+    sudo add-apt-repository ppa:neovim-ppa/stable
+    sudo apt-get update
+    sudo apt install neovim
+
 Notes:
 
 - Put the neovim init files in `~/.config/nvim` (for CLI) and `~/.config/nvim-qt` (for GUI) and name them as `init.vim`
@@ -35,3 +44,7 @@ References
 ************
 
 - CheatSheet: https://vim.rtorr.com/
+- Cursor movements: https://stackoverflow.com/a/3458821/5836037
+- Plugins: https://www.baeldung.com/linux/vim-install-neovim-plugins
+    - Plugins Directory: https://stackoverflow.com/a/50122211/5836037
+    - Good plugins: https://hannadrehman.com/top-neovim-plugins-for-developers-in-2022

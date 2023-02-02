@@ -13,3 +13,6 @@ augroup END
 " Synchronize system clipboard (default register)
 "   From: https://ploegert.gitbook.io/til/tools/vim/allow-neovim-to-copy-paste-with-system-clipboard 
 set clipboard+=unnamedplus
+
+" Set mouse mode
+set mouse=ar
