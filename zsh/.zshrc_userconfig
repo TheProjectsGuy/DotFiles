@@ -34,6 +34,47 @@ export TERM=xterm-256color
 export EDITOR="nvim"    # Use NeoVim
 # -----------------------------------------------
 
+# ---------------- Aliases ---------------- 
+# Copy to clipboard
+alias cpclip="xclip -i -selection clipboard"
+alias pwdclip="pwd | tr -d '\n' | cpclip"
+# Open PWD in explorer
+alias pwdopen="xdg-open $PWD 2> /dev/null"
+# If you want to use neovim (default editor) with crontab
+alias crontab="export VISUAL$EDITOR; crontab"
+# -----------------------------------------
+
+# ------ RRC Simulation Servers (IIIT Hyderabad) ------ 
+export USER_RRC="avneesh.mishra"
+function link-rrc-sys() {
+    if [[ "$2" ]]; then
+        port_num=$2
+    else
+        port_num=61000
+    fi
+    if [[ "$3" ]]; then
+        src_port=$3
+    else
+        src_port=22
+    fi
+    node_name="$1.rrcx.tk"
+    # Remove from list of known hosts (to avoid conflicts)
+    rmh_str="ssh-keygen -f $HOME/.ssh/known_hosts -R \"[localhost]:$port_num\""
+    echo -ne "\e[0;36m"
+    echo $rmh_str
+    echo -ne "\e[0m"
+    eval $rmh_str
+    # Connect through SSH
+    ssh_str="ssh -L ${port_num}:localhost:${src_port} -X $USER_RRC@$node_name"
+    echo -ne "\e[0;36m"
+    echo $ssh_str
+    echo -ne "\e[0m"
+    eval $ssh_str
+    ecode=$?
+    echo "SSH Connection ended - exit code $ecode"
+}
+# -----------------------------------------------------
+
 # ------ Ada HPC (IIIT Hyderabad) ------ 
 # Username on ada
 export USER_ADA="avneesh.mishra"
