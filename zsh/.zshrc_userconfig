@@ -111,6 +111,10 @@ function link-gnode() {
     ecode=$?
     echo "SSH Connection ended - exit code $ecode"
 }
+# Print job ID (for SLURM)                                                                                                                                                                                                                    
+if [[ $(hostname) =~ ^gnode ]]; then                                                                                                                                                                                                          
+    echo "SLURM Job ID: $SLURM_JOB_ID"                                                                                                                                                                                                        
+fi 
 # --------------------------------------
 
 # ------------------------- Anaconda -------------------------

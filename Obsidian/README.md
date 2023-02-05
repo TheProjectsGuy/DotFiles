@@ -13,3 +13,5 @@ Use [obsidian](https://obsidian.md/) to take notes. This is especially helpful i
 | 2 | [deathau/cm-editor-syntax-highlight-obsidian](https://github.com/deathau/cm-editor-syntax-highlight-obsidian) | Syntax highlighting for different languages |
 | 3 | [remotely-save/remotely-save](https://github.com/remotely-save/remotely-save) | An **unofficial** sync app for Obsidian (tested with Dropbox) |
 | 4 | [jamiebrynes7/obsidian-todoist-plugin](https://github.com/jamiebrynes7/obsidian-todoist-plugin) | Integrate Todoist with Obsidian. |
+
+I backup my Obsidian everyday using [KBackup](./../KBackup.md).
