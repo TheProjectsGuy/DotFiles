@@ -4,6 +4,7 @@ Use [obsidian](https://obsidian.md/) to take notes. This is especially helpful i
 
 - [Obsidian](#obsidian)
     - [Plugins](#plugins)
+    - [Notes](#notes)
 
 ## Plugins
 
@@ -14,4 +15,7 @@ Use [obsidian](https://obsidian.md/) to take notes. This is especially helpful i
 | 3 | [remotely-save/remotely-save](https://github.com/remotely-save/remotely-save) | An **unofficial** sync app for Obsidian (tested with Dropbox) |
 | 4 | [jamiebrynes7/obsidian-todoist-plugin](https://github.com/jamiebrynes7/obsidian-todoist-plugin) | Integrate Todoist with Obsidian. |
 
-I backup my Obsidian everyday using [KBackup](./../KBackup.md).
+## Notes
+
+- Enable slash commands: `Settings` > `Core Plugins`
+- I backup my Obsidian everyday using [KBackup](./../KBackup.md).
