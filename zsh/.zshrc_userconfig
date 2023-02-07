@@ -102,8 +102,8 @@ function link-gnode() {
     echo $rmh_str
     echo -ne "\e[0m"
     eval $rmh_str
-    # Connect through SSH
-    ssh_str="ssh -L ${port_num}:localhost:${src_port} -X -J $USER_ADA@ada $USER_ADA@$gnode_name"
+    # Connect through SSH (and open ZSH)
+    ssh_str="ssh -L ${port_num}:localhost:${src_port} -X -J $USER_ADA@ada -t $USER_ADA@$gnode_name zsh"
     echo -ne "\e[0;36m"
     echo $ssh_str
     echo -ne "\e[0m"
