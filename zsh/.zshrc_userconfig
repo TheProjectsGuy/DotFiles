@@ -115,6 +115,18 @@ function link-gnode() {
 if [[ $(hostname) =~ ^gnode ]]; then                                                                                                                                                                                                          
     echo "SLURM Job ID: $SLURM_JOB_ID"                                                                                                                                                                                                        
 fi 
+# --- For inside Ada ---
+# SSH into a gnode                                                                                                                                                                                                                            
+function ssh-gnode() {                                                                                                                                                                                                                        
+    gnode_name="gnode$(printf '%03d' $1)"                                                                                                                                                                                                     
+    ssh_str="ssh -Xt $gnode_name zsh"                                                                                                                                                                                                         
+    echo -ne "\e[0;36m"                                                                                                                                                                                                                       
+    echo $ssh_str                                                                                                                                                                                                                             
+    echo -ne "\e[0m"                                                                                                                                                                                                                          
+    eval $ssh_str                                                                                                                                                                                                                             
+    ecode=$?                                                                                                                                                                                                                                  
+    echo "SSH connection with $gnode_name ended with exit code - $ecode"                                                                                                                                                                      
+}
 # --------------------------------------
 
 # ------------------------- Anaconda -------------------------
