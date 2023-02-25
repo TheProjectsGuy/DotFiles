@@ -17,5 +17,18 @@
         "key": "ctrl+l",
         "command": "workbench.action.terminal.clear",
         "when": "terminalFocus"
+    },
+    // Side bars (left and right in vim)
+    {
+        "key": "ctrl+b h",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+b l",
+        "command": "workbench.action.toggleAuxiliaryBar"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
     }
 ]
