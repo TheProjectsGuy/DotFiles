@@ -9,7 +9,11 @@
     "[python]": {
         // See: https://peps.python.org/pep-0008/#maximum-line-length
         "editor.wordBasedSuggestions": false,
-        "editor.rulers": [70, 90]
+        "editor.rulers": [70, 90],
+        // Force 1 tab = 4 spaces
+        "editor.detectIndentation": false,
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
     },
     /*
         Python settings
