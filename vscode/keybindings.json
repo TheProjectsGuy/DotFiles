@@ -30,5 +30,12 @@
     {
         "key": "ctrl+b",
         "command": "-workbench.action.toggleSidebarVisibility"
+    },
+    // Dismiss GitHub copilot suggestions when using vim
+    //  Also see: https://stackoverflow.com/q/70567353/5836037
+    {
+        "key": "shift+escape",
+        "command": "editor.action.inlineSuggest.hide",
+        "when": "editorTextFocus"
     }
 ]
