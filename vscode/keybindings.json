@@ -34,7 +34,7 @@
     // Dismiss GitHub copilot suggestions when using vim
     //  Also see: https://stackoverflow.com/q/70567353/5836037
     {
-        "key": "shift+escape",
+        "key": "ctrl+escape",   // "shift+escape" is already used by vscode
         "command": "editor.action.inlineSuggest.hide",
         "when": "editorTextFocus"
     }
