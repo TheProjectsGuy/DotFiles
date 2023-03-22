@@ -13,7 +13,9 @@ Use [obsidian](https://obsidian.md/) to take notes. This is especially helpful i
 | 1 | [oliveryh/obsidian-emoji-toolbar](https://github.com/oliveryh/obsidian-emoji-toolbar) | Emoji input for Obsidian notes. Create a shortcut for `Ctrl + Shift + <Space>` for quick access |
 | 2 | [deathau/cm-editor-syntax-highlight-obsidian](https://github.com/deathau/cm-editor-syntax-highlight-obsidian) | Syntax highlighting for different languages |
 | 3 | [remotely-save/remotely-save](https://github.com/remotely-save/remotely-save) | An **unofficial** sync app for Obsidian (tested with Dropbox) |
-| 4 | [jamiebrynes7/obsidian-todoist-plugin](https://github.com/jamiebrynes7/obsidian-todoist-plugin) | Integrate Todoist with Obsidian. |
+| 4 | [stargrey/obsidian-better-codeblock](https://github.com/stargrey/obsidian-better-codeblock) | Title, line numbers, and code folding to code blocks |
+| 5 | [dhamaniasad/obsidian-rich-links](https://github.com/dhamaniasad/obsidian-rich-links) | Convert URLs to link previews |
+| 6 | [jamiebrynes7/obsidian-todoist-plugin](https://github.com/jamiebrynes7/obsidian-todoist-plugin) | Integrate Todoist with Obsidian |
 
 ## Notes
 
