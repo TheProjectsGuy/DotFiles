@@ -15,8 +15,9 @@ Move the script to a folder in `$PATH` and `chmod u+x` it.
 
 ## Contents
 
-
 | S. No. | Script name | Description |
 | :----- | :---------- | :---------- |
-| 1 | [csinteractive.sh](./csinteractive.sh) | A cool version of `sinteractive` |
+| 1 | [csinteractive.sh](./csinteractive.sh) | A cool version of `sinteractive`. Check the [gist](https://gist.github.com/TheProjectsGuy/de328d8c6f9dd46a4785bb299575bc47). |
 | 2 | [conda-backup.sh](./conda-backup.sh) | Bachup an anaconda environment |
+| 3 | [mount_iiith_onedrive.sh](./mount_iiith_onedrive.sh) | Mount IIIT-Hyderabad OneDrive. See [rclone docs](https://rclone.org/onedrive/). |
+| 4 | [mount_personal_dropbox.sh](./mount_personal_dropbox.sh) | Mount personal DropBox. See [rclone docs](https://rclone.org/dropbox/). |

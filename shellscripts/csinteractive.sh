@@ -19,12 +19,15 @@
 # using `srun`. Check usage using [-h|--help].
 
 readonly VERSION_MAJOR=1
-readonly VERSION_MINOR=6
+readonly VERSION_MINOR=13
+readonly LAST_MDATE="Fri Feb 17 13:54:49 IST 2023"  # Output of `date`
 VERSION="$VERSION_MAJOR.$VERSION_MINOR"
 
 readonly ARGS="$@"  # Reset using https://stackoverflow.com/a/4827707
 readonly PROGNAME=$(basename $0)
 readonly PROGPATH=$(realpath $(dirname $0))
+# URL on GitHub Gist (for latest version)
+readonly PROG_URL="https://gist.githubusercontent.com/TheProjectsGuy/de328d8c6f9dd46a4785bb299575bc47/raw/csinteractive.sh"
 # Defaults
 readonly DEF_NUM_CPUS=2
 readonly DEF_PARTITION=long
@@ -34,6 +37,7 @@ readonly DEF_NUM_GPUS=0
 readonly DEF_NUM_NODES=1
 readonly DEF_TIME_PERIOD="6:00:00"
 readonly DEF_USER_SHELL=bash
+readonly COMNMS="gnode"     # A phrase all nodes share (for grep)
 
 # ---- Output formats ----
 # Rules:
@@ -95,6 +99,8 @@ if [[ -z $SHELL_PATH ]]; then
     echo_fatal "Could not find shell: $DEF_USER_SHELL"
     exit 127
 fi
+# Local binaries (no need for checking)
+readonly sacct_bin=$(which sacct 2> /dev/null)
 
 echo_debug "Found $SALLOC_BIN and $SRUN_BIN"
 echo_debug "Using shell $SHELL_PATH"
@@ -116,48 +122,55 @@ EXEC_SCRIPT=true    # By default, execute the script (no dry run)
 # ==== Utility functions ====
 function usage () {
     cat <<-EOF
-Cool sinteractive script, version $VERSION
+Cool sinteractive (SLURM interactive) script, version $VERSION
 
-Usage: $PROGNAME [-h] [-c N] [-g N] [-r S] [-a S] [-J S] [-x L] [-w L]
+Usage: $PROGNAME [-OPTARG VAL ...]
 
-    Where N is a number, S is a string (no spaces), and L is a list of 
-    nodes (list, or file with newline separator).
-    - Use "quotes" for list of nodes in L. Eg: "gnode[007-008,043]"
-    - Pass full path if L is a file
-    - Do not use space in the value for any argument
-    - Pass either '-w' or '-l' (but not both). Not passing either will
-        give a random node.
 
 All optional arguments:
-    -h | --help             Help menu (this menu)
+    -a | --account          Account name (can also come after -r [1])
+                            (Default: $DEF_ACCOUNT)
+    -b | --begin            Give a begin time for the job allocation.
+                            Eg: "16:00", "now+1hour", "now+60" (sec),
+                            "2010-01-20T12:34:00"
     -c | --cpu              Number of CPUs to request
                             (Default: $DEF_NUM_CPUS)
     -g | --gpu              Number of GPUs to request
                             (Default: $DEF_NUM_GPUS)
-    -N | --nodes            Number of nodes for 'salloc' allocation
-                            (Default: $DEF_NUM_NODES)
-    -r | --reservation      Reservation (account is also set to same name)
-    -a | --account          Account name (can also come after -r)
-                            (Default: $DEF_ACCOUNT)
+    -h | --help             Help menu (this menu)
+    -i | --node-info        Show information about a single node or a comma
+                            separated list of nodes and exit
+    -j | --job-info         Job information for a job number
     -J | --name             Job name (no spaces)
                             (Default: $DEF_JOB_NAME)
-    -x | --exclude          Exclude the list of nodes passed
-    -w | --nodelist         Request specific list of hosts
-                            Before using this, check QOSMaxNodePerJobLimit
+    -K | --kill-all         Cancels all running SLURM jobs of user. This
+                            should be the only argument passed.
     -l | --last-node        Use the gnode which the user used previously
                             Command uses 'sacct' and 'USER' to fetch data
                             User must have some allocation in last 7 days
-    -s | --shell            Shell to use (bash, zsh)
-    -n | --dry-run          Do not get allocation and run; only show output
-    -v | --version          Show the version information and exit
-    -b | --begin            Give a begin time for the job allocation.
-                            Eg: "16:00", "now+1hour", "now+60" (sec),
-                            "2010-01-20T12:34:00"
     -m | --mem-per-cpu      Minimum RAM per CPU. Check configurations using
                             'scontrol show config' and 'seff'
-    -i | --node-info        Show information about a single node or a comma
-                            separated list of nodes and exit
+    -M | --queue-me         Print the user 'squeue' information (running 
+                            jobs) (User name: $USER)
+    -n | --dry-run          Do not get allocation and run; only show output
+    -N | --nodes            Number of nodes for 'salloc' allocation
+                            (Default: $DEF_NUM_NODES)
+    -p | --partition        Partition for node allocation
+                            (Default: $DEF_PARTITION)
+    -r | --reservation      Reservation (account is also set to same [1])
+    -s | --shell            Shell to use (bash, zsh)
+    -t | --time             Time limit for the job allocation (0 = inf)
+                            (Default: $DEF_TIME_PERIOD)
+    -u | --update           Update the csinteractive script
+                            Directory: $PROGPATH
+                            Program: $PROGNAME
+    -v | --version          Show the version information and exit
+    -w | --nodelist         Request specific list of hosts
+                            Before using this, check QOSMaxNodePerJobLimit
+    -x | --exclude          Exclude the list of nodes passed
 
+[1]: Option '-a' can come after '-r' to set different account name
+[2]: Use "quotes" for list of nodes. Eg: "gnode[007-008,043]"
 
 Exit codes:
     0           Script executed successfully
@@ -166,6 +179,7 @@ Exit codes:
     127         Command not found
 
 References:
+- sacct: https://slurm.schedmd.com/sacct.html
 - salloc: https://slurm.schedmd.com/salloc.html
 - srun: https://slurm.schedmd.com/srun.html
 EOF
@@ -249,9 +263,16 @@ function parse_options () {
                 if [[ -z $shell_path ]]; then
                     echo_warn "Shell $custom_shell not found, using bash"
                 else
-                    echo_debug "Fount shell at $shell_path"
+                    echo_debug "Found shell at $shell_path"
                     SHELL_PATH=$shell_path
                 fi
+                ;;
+            # Time limit for allocation
+            "--time" | "-t")
+                new_time=$1
+                shift
+                echo_debug "Setting time limit from $TIME_PERIOD to $new_time"
+                TIME_PERIOD=$new_time
                 ;;
             # Dry run
             "--dry-run" | "-n")
@@ -260,7 +281,6 @@ function parse_options () {
                 ;;
             # Previous node
             "--last-node" | "-l")
-                readonly sacct_bin=$(which sacct 2> /dev/null)
                 if [[ -z $sacct_bin ]]; then
                     echo_fatal "Could not find sacct"
                     exit 127
@@ -274,7 +294,7 @@ function parse_options () {
                 if [[ $ec -ne 0 ]]; then
                     echo_fatal "sacct could not run (maybe user not found)"
                 fi
-                gn=$($qry_cmd | tail -n 1 | sed "s/ //g")
+                gn=$($qry_cmd | grep $COMNMS | tail -n 1 | sed "s/ //g")
                 echo_debug "$USER last used '$gn' NodeList"
                 NODE_LIST=$gn
                 ;;
@@ -288,6 +308,7 @@ function parse_options () {
             # Show version
             "--version" | "-v")
                 echo_info "Version: $VERSION"
+                echo_debug "Last Modified: $LAST_MDATE"
                 exit 0
                 ;;
             # RAM per CPU
@@ -296,6 +317,14 @@ function parse_options () {
                 shift
                 echo_debug "RAM per CPU: $ram_cpu"
                 MEM_PER_CPU=$ram_cpu
+                ;;
+            # User queue
+            "--queue-me" | "-M")
+                sq_cmd="squeue -u $USER -o \"%.10i %.15j %.3t %.10M %.4C  %20S %9g %.8a %.7m  %N(%r)\""
+                echo_command $sq_cmd
+                eval $sq_cmd
+                echo_debug "Queue information display completed"
+                exit 0
                 ;;
             # Node information
             "--node-info" | "-i")
@@ -316,13 +345,13 @@ function parse_options () {
                 # Show the pestat output
                 readonly pestat_bin=$(which pestat 2> /dev/null)
                 if [[ -z $pestat_bin ]]; then
-                    echo_fatal "Could not find pestat"
-                    exit 127
+                    echo_warn "Could not find pestat"
+                else
+                    pestat_cmd="$pestat_bin -w $nodelist"
+                    echo_command $pestat_cmd
+                    eval $pestat_cmd
+                    echo ""
                 fi
-                pestat_cmd="$pestat_bin -w $nodelist"
-                echo_command $pestat_cmd
-                eval $pestat_cmd
-                echo ""
                 # Show the sinfo output
                 readonly sinfo_bin=$(which sinfo 2> /dev/null)
                 if [[ -z $sinfo_bin ]]; then
@@ -338,6 +367,89 @@ function parse_options () {
                 echo ""
                 # Exit
                 echo_debug "Information display completed"
+                exit 0
+                ;;
+            # Job (number) information
+            "--job-info" | "-j")
+                job_num=$1
+                shift
+                echo_debug "Getting information on job number: $job_num"
+                # Scontrol information
+                readonly scontrol_bin=$(which scontrol 2> /dev/null)
+                if [[ -z $scontrol_bin ]]; then
+                    echo_fatal "Could not find scontrol"
+                    exit 127
+                fi
+                scontrol_cmd="$scontrol_bin show job -d $job_num"
+                echo_command $scontrol_cmd
+                eval $scontrol_cmd
+                # Account information
+                if [[ -z $sacct_bin ]]; then
+                    echo_fatal "Could not find sacct"
+                    exit 127
+                fi
+                sacct_cmd="$sacct_bin -j $job_num"
+                echo_command $sacct_cmd
+                eval $sacct_cmd
+                echo ""
+                # Job efficiency information
+                readonly seff_bin="$(which seff 2> /dev/null)"
+                if [[ -z $seff_bin ]]; then
+                    echo_fatal "Could not find seff"
+                    exit 127
+                fi
+                seff_cmd="$seff_bin $job_num"
+                echo_command $seff_cmd
+                eval $seff_cmd
+                echo ""
+                # Exit
+                echo_debug "Information display completed"
+                exit 0
+                ;;
+            # Partition
+            "--partition" | "-p")
+                partition=$1
+                shift
+                echo_debug "Using partition: $partition"
+                PARTITION=$partition
+                ;;
+            # Update the script
+            "--update" | "-u")
+                echo_debug "Updating from URL ${PROG_URL}"
+                cd $PROGPATH
+                wget_cmd="wget $PROG_URL -O - > $PROGNAME.new"
+                echo_command $wget_cmd
+                eval $wget_cmd
+                chmod u+x ./$PROGNAME.new
+                mv ./$PROGNAME.new ./$PROGNAME
+                echo_info "Update completed"
+                exit 0
+                ;;
+            # Kill all SLURM jobs
+            "--kill-all" | "-K")
+                echo_info "Going to kill all tasks run by SLURM account"
+                jbs=$(squeue --me -O JOBID | awk '(NR>1) {print $0}' | xargs)
+                if [[ -z $job ]]; then
+                    echo_info "User has no jobs"
+                    exit 0
+                fi
+                echo_debug "Job IDs: $jbs"
+                # Find scancel
+                readonly scancel_bin="$(which scancel 2> /dev/null)"
+                if [[ -z $scancel_bin ]]; then
+                    echo_fatal "Could not find scancel"
+                    exit 127
+                fi
+                kill_cmd="$scancel_bin $jbs"
+                echo_command $kill_cmd
+                eval $kill_cmd
+                exit_code=$?
+                if [[ ! $exit_code -eq 0 ]]; then
+                    echo_warn "Exit code: $exit_code"
+                    exit $exit_code
+                fi
+                # Exit
+                echo_debug "All SLURM jobs have been terminated"
                 exit 0
                 ;;
             *)
@@ -421,7 +533,8 @@ create_salloc_opts
 create_srun_opts
 env_check
 
-echo_info -e "Starting time: `date`"
+sess_start_time=$(date)
+echo_info -e "Starting time: $sess_start_time"
 # Main command
 echo_command "$SALLOC_BIN $SALLOC_OPTS $SRUN_BIN $SRUN_OPTS $SRUN_EXEC"
 if [[ "$EXEC_SCRIPT" = true ]]; then
@@ -439,7 +552,11 @@ else
     echo_warn "Something might have gone wrong"
     EXIT_STATUS=5
 fi
-echo_info -e "Ending time: `date`"
+sess_end_time=$(date)
+echo_info -e "Ending time: $sess_end_time"
+echo_debug -e "Started at: $sess_start_time"
+sess_dur=$(echo $(date -d "$sess_end_time" +%s) - $(date -d "$sess_start_time" +%s) | bc -l)
+echo_info -e "Duration (HH:MM:SS format): `date -d@$sess_dur -u +%H:%M:%S`"
 exit $EXIT_STATUS
 
 # The below command works:

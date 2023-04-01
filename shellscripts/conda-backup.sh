@@ -115,7 +115,7 @@ if [[ ! -d $backup_folder ]]; then
 fi
 echo_debug "Backing up in folder - $backup_folder"
 cd $backup_folder
-backup_file=${backup_prefix}_$(date +"%d_%b_%Y_%k_%M_%S").yml
+backup_file=${backup_prefix}_$(date +"%d_%b_%Y_%H_%M_%S").yml
 echo_info "Using file name $backup_file"
 
 # ===== Main backup =====
