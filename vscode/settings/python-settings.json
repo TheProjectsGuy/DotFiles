@@ -44,5 +44,10 @@
     /*
         Ref: https://stackoverflow.com/a/72837463/5836037
     */
-    "notebook.output.textLineLimit": 50
+    "notebook.output.textLineLimit": 50,
+    // Python developer options
+    /*
+        Ref: See: https://code.visualstudio.com/docs/python/environments#_environment-variable-definitions-file
+    */
+    "python.envFile": "${workspaceFolder}/.vscode/python-dev.env",
 }
