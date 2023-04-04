@@ -17,6 +17,8 @@
     },
     // Bracket pair colorizer: https://code.visualstudio.com/blogs/2021/09/29/bracket-pair-colorization
     "editor.bracketPairColorization.enabled": true,
+    // Sticky scrolling (function context)
+    "editor.stickyScroll.enabled": true,
     // Settings for some languages
     // Dockerfile
     "[dockerfile]": {
