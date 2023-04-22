@@ -17,6 +17,8 @@ Use [obsidian](https://obsidian.md/) to take notes. This is especially helpful i
 | 5 | [pjeby/tag-wrangler](https://github.com/pjeby/tag-wrangler) | Manage tags (renaming and aliasing) |
 | 6 | [dhamaniasad/obsidian-rich-links](https://github.com/dhamaniasad/obsidian-rich-links) | Convert URLs to link previews |
 | 7 | [jamiebrynes7/obsidian-todoist-plugin](https://github.com/jamiebrynes7/obsidian-todoist-plugin) | Integrate Todoist with Obsidian |
+| 8 | [scambier/obsidian-text-extractor](https://github.com/scambier/obsidian-text-extractor) | A text extractor for Obsidian. Allows searching based on text in images and PDFs. |
+| 9 | [scambier/obsidian-omnisearch](https://github.com/scambier/obsidian-omnisearch) | A search plugin for Obsidian over [default search](https://help.obsidian.md/Plugins/Search) |
 
 ## Notes
 
