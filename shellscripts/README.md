@@ -21,3 +21,4 @@ Move the script to a folder in `$PATH` and `chmod u+x` it.
 | 2 | [conda-backup.sh](./conda-backup.sh) | Bachup an anaconda environment |
 | 3 | [mount_iiith_onedrive.sh](./mount_iiith_onedrive.sh) | Mount IIIT-Hyderabad OneDrive. See [rclone docs](https://rclone.org/onedrive/). |
 | 4 | [mount_personal_dropbox.sh](./mount_personal_dropbox.sh) | Mount personal DropBox. See [rclone docs](https://rclone.org/dropbox/). |
+| 5 | [proc_see_kill.sh](./proc_see_kill.sh) | Monitor processes by name and kill them if they take more than specified space on RAM. |
