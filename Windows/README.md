@@ -43,4 +43,6 @@ Use [DockerCompletion](https://github.com/matt9ucci/DockerCompletion) for Docker
 
 ## References
 
-- https://docs.microsoft.com/en-us/windows/terminal/panes
+- [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/)
+    - [Panes](https://docs.microsoft.com/en-us/windows/terminal/panes)
+    - [Actions](https://learn.microsoft.com/en-us/windows/terminal/customize-settings/actions)
