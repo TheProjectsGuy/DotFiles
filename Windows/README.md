@@ -41,7 +41,6 @@ Powershell, like `zsh`, can be heavily customized. Check out [Oh My Posh](https:
 
 Use [DockerCompletion](https://github.com/matt9ucci/DockerCompletion) for Docker tab autocomplete.
 
-
 ## References
 
 - https://docs.microsoft.com/en-us/windows/terminal/panes
