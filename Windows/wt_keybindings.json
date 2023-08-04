@@ -20,6 +20,28 @@
                 "split": "vertical"
             },
             "keys": "ctrl+shift+e"
+        },
+        // Split pane (with duplicate profile)
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "keys": "alt+shift+d"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab"
+            },
+            "keys": "ctrl+shift+t"
+        },
+        // Toggle the zoom (make pane full screen)
+        {
+            "command": "togglePaneZoom",
+            "keys": "alt+shift+x"
         }
     ]
 }
