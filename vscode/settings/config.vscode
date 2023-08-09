@@ -1,0 +1,9 @@
+# Remote SSH configurations
+
+# For Ada gnodes (port linked to your system)
+Host gnode
+  HostName localhost
+  Port 60000
+  User avneesh.mishra
+  PreferredAuthentications publickey
+  IdentityFile "/home/avneesh/.ssh/iiith_ada_nopass"
