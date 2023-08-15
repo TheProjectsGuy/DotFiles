@@ -23,4 +23,11 @@ Move the script to a folder in `$PATH` and `chmod u+x` it.
 | 4 | [proc_see_kill.sh](./proc_see_kill.sh) | Monitor processes by name and kill them if they take more than specified space on RAM. |
 | 5 | [mamba-install.sh](./mamba-install.sh) | A wrapper for `mamba install` that logs whatever you install (with timestamp). |
 | 6 | [conda-install.sh](./conda-install.sh) | A wrapper for `conda install` that logs whatever you install (with timestamp). |
-| 7 | [mount_personal_dropbox.sh](./mount_personal_dropbox.sh) | ~~Mount personal DropBox. See [rclone docs](https://rclone.org/dropbox/).~~ Use the [official Dropbox installer for Linux](https://www.dropbox.com/install) |
+| 7 | [mamba-pip-install.sh](./mamba-pip-install.sh) | A wrapper for `pip install` in a mamba environment that logs whatever you install (with timestamp). |
+| 8 | [conda-pip-install.sh](./conda-pip-install.sh) | A wrapper for `pip install` in a conda environment that logs whatever you install (with timestamp). |
+
+The following is deprecated
+
+| S. No. | Script name | Description |
+| :----- | :---------- | :---------- |
+| 1 | [mount_personal_dropbox.sh](./mount_personal_dropbox.sh) | ~~Mount personal DropBox. See [rclone docs](https://rclone.org/dropbox/).~~ Use the [official Dropbox installer for Linux](https://www.dropbox.com/install) |
