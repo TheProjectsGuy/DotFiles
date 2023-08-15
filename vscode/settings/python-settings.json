@@ -50,4 +50,6 @@
         Ref: See: https://code.visualstudio.com/docs/python/environments#_environment-variable-definitions-file
     */
     "python.envFile": "${workspaceFolder}/.vscode/python-dev.env",
+    // Set the path of jupyter notebook (server)
+    "jupyter.notebookFileRoot": "${workspaceFolder}",
 }
