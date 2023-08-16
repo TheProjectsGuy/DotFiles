@@ -20,6 +20,15 @@
 			"\t${1:pass}"
 		]
 	},
+	// Jupyter/ipy-interactive main
+	"Main entrypoint (in interactive environment)": {
+		"description": "The main entrypoint (also detecting the ipykernel)",
+		"prefix": ["maini", "entrypointi"],
+		"body": [
+			"if __name__ == \"__main__\" and \"ipykernel\" not in sys.argv[0]:",
+			"\t${1:pass}"
+		]
+	}
 
 	//
 	//	For local to workspace. Put in a file named ".vscode/snippets.code-snippets" in the root of the workspace.
