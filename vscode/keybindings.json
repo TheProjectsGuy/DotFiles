@@ -44,5 +44,15 @@
         "key": "ctrl+escape",   // "shift+escape" is already used by vscode
         "command": "editor.action.inlineSuggest.hide",
         "when": "editorTextFocus"
+    },
+    // Restart python language server (for re-discovery of paths by linter)
+    {
+        "key": "ctrl+b r",
+        "command": "python.analysis.restartLanguageServer"
+    },
+    // Collapse all folders in explorer (for tree view folding)
+    {
+        "key": "ctrl+b g",
+        "command": "workbench.files.action.collapseExplorerFolders"
     }
 ]
