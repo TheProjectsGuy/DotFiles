@@ -11,6 +11,8 @@
     "editor.insertSpaces": true,
     // Do not trim whitespaces
     "editor.trimAutoWhitespace": false,
+    // Relative line numbers (like in neovim)
+    "editor.lineNumbers": "relative"
     // JSON has comments
     "files.associations": {
         "*.json": "jsonc"
