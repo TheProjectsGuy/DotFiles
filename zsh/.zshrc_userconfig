@@ -147,6 +147,45 @@ function conda-init() {
     unset __conda_setup
     # <<< conda initialize <<<
 }
+# RRC anaconda installation
+function conda-rrc-init() {
+    # >>> conda initialize >>>
+    # !! Contents within this block are managed by 'conda init' !!
+        __conda_setup="$('/home/rrc.env/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+        if [ $? -eq 0 ]; then
+            eval "$__conda_setup"
+        else
+            if [ -f "/home/rrc.env/anaconda3/etc/profile.d/conda.sh" ]; then
+                . "/home/rrc.env/anaconda3/etc/profile.d/conda.sh"
+            else
+                export PATH="/home/rrc.env/anaconda3/bin:$PATH"
+            fi
+        fi
+        unset __conda_setup
+    # conda config --set auto_activate_base false
+    # <<< conda initialize
+}
+# Initialize mamba
+function mamba-init() {
+    # >>> conda initialize >>>
+    # !! Contents within this block are managed by 'conda init' !!
+    __conda_setup="$('/home2/avneesh.mishra/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "/home2/avneesh.mishra/mambaforge/etc/profile.d/conda.sh" ]; then
+            . "/home2/avneesh.mishra/mambaforge/etc/profile.d/conda.sh"
+        else
+            export PATH="/home2/avneesh.mishra/mambaforge/bin:$PATH"
+        fi
+    fi
+    unset __conda_setup
+    
+    if [ -f "/home2/avneesh.mishra/mambaforge/etc/profile.d/mamba.sh" ]; then
+        . "/home2/avneesh.mishra/mambaforge/etc/profile.d/mamba.sh"
+    fi
+    # <<< conda initialize <<<
+}
 # Link library of conda environment
 function conda-ld-link() {
     # Can also add to $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
