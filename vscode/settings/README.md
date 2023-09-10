@@ -15,7 +15,7 @@ The contents of this folder, described in the table below
 
 | Item Name | Description |
 | :---- | :----- |
-| [editor-settings.json](./editor-settings.json) | Settings for VSCode editor |
+| [editor-settings.json](./editor-settings.json) | Settings for VSCode editor (code editor and general IDE) |
 | [python-settings.json](./python-settings.json) | Python settings used in VSCode |
 | [terminal-settings.json](./terminal-settings.json) | Settings for VSCode terminal. Currently includes `Conda-Init` for Windows Powershell only. |
 | [markdownlint-settings.json](./markdownlint-settings.json) | Settings for extension [DavidAnson.vscode-markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) |
