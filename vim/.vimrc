@@ -8,6 +8,8 @@ set hlsearch
 set showmatch
 " Show line numbers
 set number
+" Set relative line numbers
+set relativenumber
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
