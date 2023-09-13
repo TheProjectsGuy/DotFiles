@@ -8,7 +8,7 @@ bindkey -M menuselect -s '^[' '^G^_'
 
 # --------- Path ----------
 # Personal binaries
-export PATH=$PATH:$HOME/bin
+export PATH=$HOME/bin${PATH:+:${PATH}}
 # CUDA
 export CUDA_INSTALL_PATH=/usr/local/cuda
 export PATH=$PATH:$CUDA_INSTALL_PATH/bin
