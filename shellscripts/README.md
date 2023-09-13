@@ -25,6 +25,7 @@ Move the script to a folder in `$PATH` and `chmod u+x` it.
 | 6 | [conda-install.sh](./conda-install.sh) | A wrapper for `conda install` that logs whatever you install (with timestamp). |
 | 7 | [mamba-pip-install.sh](./mamba-pip-install.sh) | A wrapper for `pip install` in a mamba environment that logs whatever you install (with timestamp). |
 | 8 | [conda-pip-install.sh](./conda-pip-install.sh) | A wrapper for `pip install` in a conda environment that logs whatever you install (with timestamp). |
+| 9 | [kill_user.sh](./kill_user.sh) | Kill all processes of a user |
 
 The following is deprecated
 
