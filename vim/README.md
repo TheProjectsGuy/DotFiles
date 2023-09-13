@@ -39,9 +39,7 @@ sudo mv ~/Downloads/nvim-linux64 ./
 Change your `.*rc` file to use neovim instead of vim
 
 ```bash
-alias nvim=/global/nvim-linux64/bin/nvim
-alias vi=nvim
-alias vim=vi
+alias nvim=/opt/nvim-linux64/bin/nvim
 ```
 
 **Risky**: You can also change this default (system-wide).
@@ -55,7 +53,7 @@ sudo update-alternatives --config editor
 
 ### Using NVChad
 
-Setup `nvim` as above. Then setup nvchad.
+Setup `nvim` as above. Use the [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads) (try `JetBrainsMonoNerdFont-Medium.ttf`). Then setup nvchad.
 
 ```bash
 # Make backups
@@ -66,6 +64,52 @@ git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 nvim
 ```
 
+Set the following configurations
+
+- Theme: `penumbra_dark`
+
+Run the following as vim commands (`:`, ignore `" comments`)
+
+```vim
+" Syntax highlighting 
+TSInstall python
+TSInstallInfo
+```
+
+Cheatsheet: `Space` + `c` + `h`
+
+Finally, remember the notes below :wink:
+
+```txt
+
+  
+  ███╗   ██╗   ██████╗  ████████╗ ███████╗ ███████╗
+  ████╗  ██║  ██╔═══██╗ ╚══██╔══╝ ██╔════╝ ██╔════╝
+  ██╔██╗ ██║  ██║   ██║    ██║    █████╗   ███████╗
+  ██║╚██╗██║  ██║   ██║    ██║    ██╔══╝   ╚════██║
+  ██║ ╚████║  ╚██████╔╝    ██║    ███████╗ ███████║
+  
+  
+    Please read the docs at nvchad.com from start to end 󰕹 󰱬
+  
+    All NvChad available options are in 'core/default_config.lua', Know them
+  
+    Mason just downloads binaries, dont expect it to configure lsp automatically
+  
+    Dont edit files outside custom folder or you lose NvChad updates forever 󰚌
+  
+    Ask NvChad issues in nvchad communities only, go to https://nvchad.com/#community
+  
+    Read the plugin docs to utilize 100% of their functionality.
+  
+    If you dont see any syntax highlighting not working, install a tsparser for it
+  
+    Check the default mappings by pressing space + ch or NvCheatsheet command
+  
+  Now quit nvim!
+
+```
+
 ## References
 
 - [Vim Cheatsheet](https://vim.rtorr.com/)
@@ -74,3 +118,4 @@ nvim
     - [Plugins Directory](https://stackoverflow.com/a/50122211/5836037)
     - [Good plugins](https://hannadrehman.com/top-neovim-plugins-for-developers-in-2022)
 - [NVChad](https://nvchad.com/)
+    - [YouTube setup tutorial](https://youtu.be/Mtgo-nP_r8Y?si=beYoQZltvrcb034P)
