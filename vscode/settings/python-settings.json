@@ -40,6 +40,8 @@
         "Python/tests/**/*.py"
     ],
     "python.defaultInterpreterPath": "C:\\Users\\Path_to_interpreter",
+    // Do not source/activate python environment
+    "python.terminal.activateEnvironment": false,
     // Increase the limit for rendering number of lines
     /*
         Ref: https://stackoverflow.com/a/72837463/5836037
