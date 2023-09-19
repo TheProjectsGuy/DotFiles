@@ -14,6 +14,7 @@ dev_tools="false"   # 'true' or 'false'
 # Output formatting
 debug_msg_fmt="\e[2;90m"
 info_msg_fmt="\e[1;37m"
+warn_msg_fmt="\e[1;35m"
 fatal_msg_fmt="\e[2;31m"
 command_msg_fmt="\e[0;36m"
 # Wrapper printing functions
@@ -24,6 +25,11 @@ echo_debug () {
 }
 echo_info () {
     echo -ne $info_msg_fmt
+    echo $@
+    echo -ne "\e[0m"
+}
+echo_warn () {
+    echo -ne $warn_msg_fmt
     echo $@
     echo -ne "\e[0m"
 }
@@ -48,6 +54,10 @@ function run_command() {
 }
 function conda_install() {
     run_command $exec_name install -y --freeze-installed --no-update-deps $@
+    ec=$?
+    if [[ $ec -gt 0 ]]; then
+        echo_warn "Could not install '$@', maybe try though conda_raw_install"
+    fi
 }
 function conda_raw_install() {
     run_command $exec_name install -y $@

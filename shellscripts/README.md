@@ -22,7 +22,7 @@ Move the script to a folder in `$PATH` and `chmod u+x` it.
 | 3 | [mount_iiith_onedrive.sh](./mount_iiith_onedrive.sh) | Mount IIIT-Hyderabad OneDrive. See [rclone docs](https://rclone.org/onedrive/). |
 | 4 | [proc_see_kill.sh](./proc_see_kill.sh) | Monitor processes by name and kill them if they take more than specified space on RAM. |
 | 5 | [kill_user.sh](./kill_user.sh) | Kill all processes of a user |
-| 6 | [env-setup.sh](./env-setup.sh) | An environment setup starter script, mainly for python packages created using mamba, conda, and pip. |
+| 6 | [env_setup.sh](./env_setup.sh) | An environment setup starter script, mainly for python packages created using mamba, conda, and pip. |
 
 The following is deprecated
 
