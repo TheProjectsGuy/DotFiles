@@ -39,6 +39,8 @@ A list of my commonly used extensions
 | [lextudio.restructuredtext](https://marketplace.visualstudio.com/items?itemName=lextudio.restructuredtext) | Extension for reStructuredText (rst) |
 | [DavidAnson.vscode-markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) | Markdown linting |
 | [donjayamanne.githistory](https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory) | View `git` history, commits, graphs, etc. |
+| [eamodio.gitlens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) | GitLens - Git supercharged. Excellent git features (line blame, file history, etc.) |
+| [mads-hartmann.bash-ide-vscode](https://marketplace.visualstudio.com/items?itemName=mads-hartmann.bash-ide-vscode) | Bash IDE support (variables, outline, etc.). Excellent for shell scripting. |
 | [streetsidesoftware.code-spell-checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) | Software to check spellings |
 | [oderwat.indent-rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow) | For colored indentation guides |
 | [CoenraadS.bracket-pair-colorizer-2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2) | Shows beautiful brackets which are easier to read. Now, VSCode [natively has this](https://code.visualstudio.com/blogs/2021/09/29/bracket-pair-colorization) |
@@ -46,9 +48,9 @@ A list of my commonly used extensions
 | [Gruntfuggly.todo-tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree) | List `TODO` or other tag items in a sidebar |
 | [wayou.vscode-todo-highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight) | Highlight `TODO`, `FIXME`, and more. Use this or `Gruntfuggly.todo-tree` |
 | [stkb.rewrap](https://marketplace.visualstudio.com/items?itemName=stkb.rewrap) | Rewrap long comments into blocks of fixed width |
-| [znck.grammarly](https://marketplace.visualstudio.com/items?itemName=znck.grammarly) | Grammarly integration for proper writing |
 | [bierner.markdown-emoji](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-emoji) | Emojis in Markdown (works in preview, GitHub) |
 | [amazonwebservices.aws-toolkit-vscode](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-toolkit-vscode) | AWS tools |
+| [znck.grammarly](https://marketplace.visualstudio.com/items?itemName=znck.grammarly) | Grammarly integration for proper writing |
 
 ## References
 
