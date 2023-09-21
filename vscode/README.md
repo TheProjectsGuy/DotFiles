@@ -37,6 +37,7 @@ A list of my commonly used extensions
 | [yzhang.markdown-all-in-one](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one) | All things related to markdown content |
 | [James-Yu.latex-workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) | Everything LaTeX related through VSCode (more granular control than [overleaf](https://www.overleaf.com/)). Requires TeX or MikTex setup along with some pearl libraries for backend |
 | [lextudio.restructuredtext](https://marketplace.visualstudio.com/items?itemName=lextudio.restructuredtext) | Extension for reStructuredText (rst) |
+| [trond-snekvik.simple-rst](https://marketplace.visualstudio.com/items?itemName=trond-snekvik.simple-rst) | Syntax highlighting for rST files |
 | [DavidAnson.vscode-markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) | Markdown linting |
 | [donjayamanne.githistory](https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory) | View `git` history, commits, graphs, etc. |
 | [eamodio.gitlens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) | GitLens - Git supercharged. Excellent git features (line blame, file history, etc.) |
