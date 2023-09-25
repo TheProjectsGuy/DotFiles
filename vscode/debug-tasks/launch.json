@@ -3,14 +3,37 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: Run demo (as module)",
+            "type": "python",
+            "request": "launch",
+            "module": "external.spectre.demo",
+            "justMyCode": true,
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "--input", "${input:mediaFileInput}",
+                "--outpath", "${input:mediaOutDir}",
+            ]
         }
     ],
     // See https://code.visualstudio.com/docs/editor/variables-reference#_input-variables
     "inputs": [
+        {
+            "id": "mediaFileInput",
+            "type": "promptString",
+            "default": "./external/spectre/samples/LRS3/0Fi83BHQsMA_00002.mp4",
+            "description": "A media file (folder with images, video, or an image)"
+        },
+        {
+            "id": "mediaOutDir",
+            "type": "promptString",
+            "default": "./out/spectre/result",
+            "description": "A media output directory (could also be a file)"
+        }
     ]
 }
 
 /*
- * Place this file in the `.vscode` folder for work (and remove this comment)
+ * Place this file in the `.vscode` folder for work (and remove this comment).
+ * Remove the content withing [ ... ] for a blank template.
  * For Python, use "module": "..." for running things in `-m` mode
  */
