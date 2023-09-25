@@ -10,6 +10,7 @@ exec_name="conda"           # Executable
 dry_run="false"     # 'true' or 'false'
 ask_prompts="true"  # 'true' or 'false'
 dev_tools="false"   # 'true' or 'false'
+warn_exit="true"    # 'true' or 'false'
 
 # Output formatting
 debug_msg_fmt="\e[2;90m"
@@ -57,6 +58,11 @@ function conda_install() {
     ec=$?
     if [[ $ec -gt 0 ]]; then
         echo_warn "Could not install '$@', maybe try though conda_raw_install"
+        if [[ $warn_exit == "true" ]]; then
+            exit $ec
+        else
+            echo_debug "Exit on warning not set, continuing..."
+        fi
     fi
 }
 function conda_raw_install() {
@@ -101,6 +107,10 @@ All optional arguments:
     -e | --env-name NAME    Name of the conda/mamba environment. This can
                             also be passed as the 1st positional argument.
     -h | --help             Show this message.
+        --no-exit-on-warn   By default, a warning causes the script to
+                            exit (with a suggestion modification). If this
+                            option is passed, the script doesn't exit (it
+                            continues).
     -n | --no-prompt        By default, a prompt is shown (asking to press
                             Enter to continue). If this is passed, the
                             prompt is not shown.
@@ -109,6 +119,7 @@ Exit codes
     0       Script executed successfully
     1       Argument error (some wrong argument was passed)
     127     Could not find conda or mamba (executable)
+    -       Some warning (if exit on warning)
 EOF
 }
 
@@ -148,6 +159,11 @@ function parse_options() {
             "--help" | "-h")
                 usage
                 exit 0
+                ;;
+            # No exit on warning
+            "--no-exit-on-warn")
+                echo_debug "No exit on warning set"
+                warn_exit="false"
                 ;;
             # No prompt
             "--no-prompt" | "-n")
