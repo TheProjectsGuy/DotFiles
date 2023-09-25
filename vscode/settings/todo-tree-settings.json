@@ -10,7 +10,8 @@
         "[ ]",
         "[x]",
         "DEBUG",
-        "NOW"
+        "NOW",
+        "WARN"
     ],
     "todo-tree.highlights.customHighlight": {
         "DEBUG": {

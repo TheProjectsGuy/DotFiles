@@ -2,6 +2,16 @@
     // Put this in the main setting
     "todohighlight.keywords": [
         "DEBUG:",
-        "NOW:"
+        "REVIEW:",
+        {
+            "text": "WARN:",
+            "color": "red",
+            "backgroundColor": "black"
+        },
+        "NOTE:",
+        {
+            "text": "NOW:",
+            "color": "red"
+        }
     ]
 }
