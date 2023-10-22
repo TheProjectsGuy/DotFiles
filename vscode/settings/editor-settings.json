@@ -34,4 +34,8 @@
     // Remote SSH (if not working properly)
     //  From: https://github.com/microsoft/vscode-remote-release/issues/6521#issuecomment-1102971821
     "remote.SSH.useLocalServer": false,
+    // reStructuredText files
+    "[restructuredtext]": {
+        "editor.wordWrap": "on",
+    },
 }
