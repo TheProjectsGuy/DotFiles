@@ -19,7 +19,7 @@
 # using `srun`. Check usage using [-h|--help].
 
 readonly VERSION_MAJOR=1
-readonly VERSION_MINOR=14
+readonly VERSION_MINOR=15
 readonly LAST_MDATE="Tuesday 06 June 2023 12:30:45 PM IST"  # Output of `date`
 VERSION="$VERSION_MAJOR.$VERSION_MINOR"
 
@@ -27,7 +27,7 @@ readonly ARGS="$@"  # Reset using https://stackoverflow.com/a/4827707
 readonly PROGNAME=$(basename $0)
 readonly PROGPATH=$(realpath $(dirname $0))
 # URL on GitHub Gist (for latest version)
-readonly PROG_URL="https://raw.githubusercontent.com/TheProjectsGuy/DotFiles/main/shellscripts/csinteractive.sh"
+readonly PROG_URL="https://raw.githubusercontent.com/TheProjectsGuy/DotFiles/main/shellscripts/ada/csinteractive.sh"
 # Defaults
 readonly DEF_NUM_CPUS=2
 readonly DEF_PARTITION=long

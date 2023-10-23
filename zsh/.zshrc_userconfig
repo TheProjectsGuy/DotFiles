@@ -186,9 +186,7 @@ function mamba-init() {
     fi
     # <<< conda initialize <<<
 }
-function mamba-scratch-init() {
-    # Install mamba in one command
-    #   bash ./Mambaforge-Linux-x86_64.sh -b -p /scratch/$USER/mambaforge -s
+function mamba-scratch-init-old() { # Use the alias with the script
     # >>> conda initialize >>>
     # !! Contents within this block are managed by 'conda init' !!
     __conda_setup="$('/scratch/avneesh.mishra/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -208,6 +206,7 @@ function mamba-scratch-init() {
     fi
     # <<< conda initialize <<<
 }
+alias mamba-scratch-init="source mamba-scratch-init.sh"
 # Link library of conda environment
 function conda-ld-link() {
     # Can also add to $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh

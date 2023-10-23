@@ -15,14 +15,21 @@ Move the script to a folder in `$PATH` and `chmod u+x` it.
 
 ## Contents
 
+This folder has the following files
+
 | S. No. | Script name | Description |
 | :----- | :---------- | :---------- |
-| 1 | [csinteractive.sh](./csinteractive.sh) | A cool version of `sinteractive`. Check the [gist](https://gist.github.com/TheProjectsGuy/de328d8c6f9dd46a4785bb299575bc47). |
-| 2 | [conda-backup.sh](./conda-backup.sh) | Bachup an anaconda environment |
-| 3 | [mount_iiith_onedrive.sh](./mount_iiith_onedrive.sh) | Mount IIIT-Hyderabad OneDrive. See [rclone docs](https://rclone.org/onedrive/). |
-| 4 | [proc_see_kill.sh](./proc_see_kill.sh) | Monitor processes by name and kill them if they take more than specified space on RAM. |
-| 5 | [kill_user.sh](./kill_user.sh) | Kill all processes of a user |
-| 6 | [env_setup.sh](./env_setup.sh) | An environment setup starter script, mainly for python packages created using mamba, conda, and pip. |
+| 1 | [mount_iiith_onedrive.sh](./mount_iiith_onedrive.sh) | Mount IIIT-Hyderabad OneDrive. See [rclone docs](https://rclone.org/onedrive/). |
+| 2 | [proc_see_kill.sh](./proc_see_kill.sh) | Monitor processes by name and kill them if they take more than specified space on RAM. Use like a fail-safe for programs that could have a memory leak issue. |
+| 3 | [kill_user.sh](./kill_user.sh) | Kill all processes of a user |
+| 4 | [env_setup.sh](./env_setup.sh) | A python environment setup starter script, mainly for python projects using mamba, conda, and/or pip. |
+| 5 | [starter_template.sh](./starter_template.sh) | A starter script for writing shell scripts |
+
+This folder has the following folders
+
+| S. No. | Folder name | Description |
+| :----- | :---------- | :---------- |
+| 1 | [ada](./ada) | Contains a collection of scripts that I usually put in `~/bin`. More useful for HPC-like environments. |
 
 The following is deprecated
 
