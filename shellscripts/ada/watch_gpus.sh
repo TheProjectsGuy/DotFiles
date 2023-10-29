@@ -2,4 +2,4 @@
 # Needs gpustat
 #   - https://pypi.org/project/gpustat/
 
-watch --color gpustat --force-color -p
+watch --color gpustat --force-color -p --show-fan -P
