@@ -108,9 +108,9 @@ All optional arguments:
                             also be passed as the 1st positional argument.
     -h | --help             Show this message.
         --no-exit-on-warn   By default, a warning causes the script to
-                            exit (with a suggestion modification). If this
+                            exit (with a suggested modification). If this
                             option is passed, the script doesn't exit (it
-                            continues).
+                            continues). This could cause unintended errors.
     -n | --no-prompt        By default, a prompt is shown (asking to press
                             Enter to continue). If this is passed, the
                             prompt is not shown.
