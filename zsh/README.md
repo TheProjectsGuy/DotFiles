@@ -19,7 +19,7 @@ Use `zsh`, it is pure bliss.
     sudo apt install zsh -y
     ```
 
-2. Copy the [.zshrc_setup](./.zshrc_setup) as `~/.zshrc`
+2. Copy the [setup.zshrc](./setup.zshrc) as `~/.zshrc`
 3. Run `zsh` and [install Oh-my-zsh](https://ohmyz.sh/#install)
 
     ```bash
@@ -46,9 +46,10 @@ The contents of this folder are summarized as follows
 
 | Item name | Description |
 | :---- | :---- |
-| [.zshrc_setup](./.zshrc_setup) | The `~/.zshrc` file, upon first setting up ZSH. Use this before installing anything like OMZ! and after installing zsh. You won't have to go through the setup menu anymore. |
+| [setup.zshrc](./setup.zshrc) | The `~/.zshrc` file, upon first setting up ZSH. Use this before installing anything like OMZ! and after installing zsh. You won't have to go through the setup menu anymore. |
 | [MesloLGS NF Regular.ttf](./MesloLGS%20NF%20Regular.ttf) | Font for `agnoster` theme on terminal |
-| [.zshrc_userconfig](./.zshrc_userconfig) | User configurations, you can add this in the end, after everything is set up. Make sure you see what you're adding. |
+| [JetBrainsMonoNerdFont-Medium.ttf](./JetBrainsMonoNerdFont-Medium.ttf) | Another nerd font |
+| [userconfig.zshrc](./userconfig.zshrc) | User configurations, you can add this in the end, after everything is set up. Make sure you see what you're adding. |
 
 ## Extra links
 
@@ -59,7 +60,7 @@ The contents of this folder are summarized as follows
 
 If using [Anaconda](https://www.anaconda.com/products/individual), the following can be kept in mind
 
-1. Refer to the `conda-init` method of initializing anaconda in [.zshrc_userconfig](./.zshrc_userconfig) file
+1. Refer to the `conda-init` method of initializing anaconda in [userconfig.zshrc](./userconfig.zshrc) file
 2. Use the [conda-zsh-completion](https://github.com/esc/conda-zsh-completion) plugin
 
     ```bash
