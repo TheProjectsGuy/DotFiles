@@ -30,6 +30,7 @@ This folder has the following folders
 | S. No. | Folder name | Description |
 | :----- | :---------- | :---------- |
 | 1 | [ada](./ada) | Contains a collection of scripts that I usually put in `~/bin`. More useful for HPC-like environments. |
+| 2 | [shared_ws](./shared_ws) | Contains a collection of scripts for administering shared workstations. |
 
 The following is deprecated
 

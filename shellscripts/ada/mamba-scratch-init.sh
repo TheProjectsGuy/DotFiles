@@ -1,11 +1,12 @@
 #!/bin/bash
 # Initialize a mamba environment in "/scratch" of the system
-#
 # Manage a mamba environment in the '/scratch/$USER'
-#
+# Usage
+#   mamba-scratch-init.sh [--help]
+#   . mamba-scratch-init.sh ARGS
 
 VERSION_MAJOR=1
-VERSION_MINOR=0
+VERSION_MINOR=1
 VERSION="${VERSION_MAJOR}.${VERSION_MINOR}"
 
 # Program properties
@@ -20,7 +21,8 @@ use_os="Linux"
 use_arch="x86_64"
 force_reinstall="false"
 dry_run="false"
-shell_name="zsh"
+shell_name=$(basename $SHELL)
+env_name="base"
 
 function usage() {
     cat <<-EOF
@@ -46,19 +48,23 @@ What does this script do?
     - If it does, it sources the mamba installation
 
 Usage:
-    1. . $PROGNAME -ARG VAL [-OPTARG [OPTVAL]]
-    2. source $PROGNAME -ARG VAL [-OPTARG [OPTVAL]]
+    1. [.|source] $PROGNAME -ARG VAL
+    2. $PROGNAME [-h|--help|-v|--version]
+    3. [.|source] $PROGNAME
 
     Where "ARG" is a needed argument, "VAL" is a value for the argument,
     "OPTARG" is an optional argument, and "OPTVAL" is an option value.
     You must run the program in the current shell (using 'source') so that
     the changes (like activating the environment) persist.
 
+    Note: Do no run the arguments in method 2 as source. It'll most likely
+    exit the current shell.
+    Note: Do not run this when mamba is already sourced.
+
 Arguments:
-    -b  | --shell-name S    The shell you're using. Only "bash" and "zsh"
-                            are currently supported.
     -d  | --dry-run         Print the commands that would be executed. This
                             doesn't actually execute anything.
+    -e  | --env ENV         Activate environment ENV after sourcing.
     -f  | --force           Force reinstallation of mambaforge. Note that
                             this will delete the existing installation.
     -h  | --help            Print this help message
@@ -77,6 +83,7 @@ Arguments:
                             - The directory is joined by a "/". Using the
                                 defaults above, the directory is actually
                                 $scratch_dir/$ssub_dir (by default)
+    -v  | --version         Print the version of this script
 
 Other info
 - Version: $VERSION
@@ -143,20 +150,22 @@ run_command () {
 function parse_options () {
     # Set the passed bash options
     set -- $ARGS
+    pos=1
     while (( $# )); do
         arg=$1  # Read option
+        echo_debug "Arg: $arg"
         shift   # Shift to the next argument
         case "$arg" in
-            # Shell
-            "-b" | "--shell-name")
-                shell_name=$1
-                shift
-                echo_debug "Shell set to '$shell_name'"
-                ;;
             # Dry run
             "-d" | "--dry-run")
                 dry_run="true"
                 echo_debug "Dry run set"
+                ;;
+            # Environment
+            "-e" | "--env")
+                env_name=$1
+                shift
+                echo_debug "Will activate $env_name environment"
                 ;;
             # Force reinstallation
             "-f" | "--force")
@@ -192,11 +201,22 @@ function parse_options () {
                 shift
                 echo_debug "Sub-directory set to '$ssub_dir'"
                 ;;
+            # Version
+            "--version" | "-v")
+                echo_info "Version: $VERSION"
+                return 100
+                ;;
             # None
             *)
-                echo_fatal "Unknown argument: $1, others $ARGS"
-                return 1
+                if [ $pos -eq 1 ]; then # Environment name
+                    echo_debug "Using environment $arg"
+                    env_name=$arg
+                else
+                    echo_fatal "Unknown argument: $1, others $ARGS"
+                    return 1
+                fi
         esac
+        pos=$((pos+1))
     done
 }
 
@@ -205,8 +225,8 @@ function parse_options () {
 parse_options
 ec=$?
 if [ $ec -eq 100 ]; then  # Help message (or graceful exit)
-    return 0
-elif [ $ec -ne 0 ]; then  # Throw it in the shell
+    exit 0
+elif [ $ec -ne 0 ]; then  # Throw it in the shell (some error)
     return $ec
 fi
 # Assert options
@@ -244,31 +264,41 @@ if [ ! -d $mamba_install_path ]; then
             -p /scratch/$USER/mambaforge
     run_command cd $p
 fi
-# Source it
-p=$(pwd)
-run_command cd $mamba_install_path
-if [ $shell_name = "bash" ]; then
-    __conda_setup="$('./bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-    ec=$?
-elif [ $shell_name = "zsh" ]; then
-    __conda_setup="$('./bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-    ec=$?
-else
-    echo_fatal "Unknown shell: $shell_name"
-    return 3
-fi
-echo_info "Sourcing the mamba installation"
-if [ $ec -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "$mamba_install_path/etc/profile.d/conda.sh" ]; then
-        . "$mamba_install_path/etc/profile.d/conda.sh"
+# Source it (in current shell)
+if [ $dry_run = "false" ]; then
+    p=$(pwd)
+    run_command cd $mamba_install_path
+    if [ $shell_name = "bash" ]; then
+        __conda_setup="$('./bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+        ec=$?
+    elif [ $shell_name = "zsh" ]; then
+        __conda_setup="$('./bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+        ec=$?
     else
-        export PATH="$mamba_install_path/bin:$PATH"
+        echo_fatal "Unknown shell: $shell_name"
+        return 3
     fi
+    echo_info "Sourcing the mamba installation"
+    if [ $ec -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "$mamba_install_path/etc/profile.d/conda.sh" ]; then
+            . "$mamba_install_path/etc/profile.d/conda.sh"
+        else
+            export PATH="$mamba_install_path/bin:$PATH"
+        fi
+    fi
+    unset __conda_setup
+    if [ -f "$mamba_install_path/etc/profile.d/mamba.sh" ]; then
+        . "$mamba_install_path/etc/profile.d/mamba.sh"
+    fi
+    run_command cd $p
+else
+    echo_info "Dry run set. Skipping source."
 fi
-unset __conda_setup
-if [ -f "$mamba_install_path/etc/profile.d/mamba.sh" ]; then
-    . "$mamba_install_path/etc/profile.d/mamba.sh"
+# Activate it (if environment passed)
+if [ $dry_run = "false" ]; then
+    run_command mamba activate $env_name
+else
+    echo_info "Dry run set. Skipping $env_name activation."
 fi
-run_command cd $p
