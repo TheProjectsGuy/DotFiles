@@ -19,8 +19,8 @@
 # using `srun`. Check usage using [-h|--help].
 
 readonly VERSION_MAJOR=1
-readonly VERSION_MINOR=15
-readonly LAST_MDATE="Tuesday 06 June 2023 12:30:45 PM IST"  # Output of `date`
+readonly VERSION_MINOR=16
+readonly LAST_MDATE="Wed Nov 22 21:28:16 IST 2023"  # Output of `date`
 VERSION="$VERSION_MAJOR.$VERSION_MINOR"
 
 readonly ARGS="$@"  # Reset using https://stackoverflow.com/a/4827707
@@ -94,8 +94,11 @@ if [[ -z $SRUN_BIN ]]; then
     echo_fatal "Could not find srun"
     exit 127
 fi
-SHELL_PATH="$(which $DEF_USER_SHELL 2> /dev/null)"
-if [[ -z $SHELL_PATH ]]; then
+# SHELL_PATH="$(which $DEF_USER_SHELL 2> /dev/null)"
+SHELL_PATH="/bin/$DEF_USER_SHELL"
+if [ -f $SHELL_PATH ] && [ -x $SHELL_PATH ]; then
+    echo_debug "Found $SHELL_PATH for shell"
+else
     echo_fatal "Could not find shell: $DEF_USER_SHELL"
     exit 127
 fi
@@ -164,6 +167,7 @@ All optional arguments:
     -u | --update           Update the csinteractive script
                             Directory: $PROGPATH
                             Program: $PROGNAME
+        --usage             Print the cluster usage and exit
     -v | --version          Show the version information and exit
     -w | --nodelist         Request specific list of hosts
                             Before using this, check QOSMaxNodePerJobLimit
@@ -318,6 +322,30 @@ function parse_options () {
                 echo_debug "RAM per CPU: $ram_cpu"
                 MEM_PER_CPU=$ram_cpu
                 ;;
+            # Cluster usage
+            "--usage")
+                cu_cmd="sreport -tminper cluster utilization --tres=gres/gpu,cpu"
+                echo_command $cu_cmd
+                eval $cu_cmd
+                echo_debug "Printing top utilization"
+                cu_cmd="sreport -tminper user TopUsage TopCount=20 --tres=gres/gpu"
+                echo_command $cu_cmd
+                eval $cu_cmd
+                echo_debug "Printing information in partitions and nodes"
+                si_cmd="sinfo"
+                echo_command $si_cmd
+                eval $si_cmd
+                echo_debug "Printing information on accounts"
+                readonly si_x=$(which sinfo.x 2> /dev/null)
+                if [[ -z $si_x ]]; then
+                    echo_fatal "Couldn't find sinfo.x"
+                    exit 127
+                fi
+                echo_command $si_x
+                eval $si_x
+                echo_info "Command display completed, you can run 'pestat -G' for more"
+                exit 0
+                ;;
             # User queue
             "--queue-me" | "-M")
                 sq_cmd="squeue -u $USER -o \"%.10i %.15j %.3t %.10M %.4C  %20S %9g %.8a %.7m  %N(%r)\""
@@ -417,6 +445,7 @@ function parse_options () {
             "--update" | "-u")
                 echo_debug "Updating from URL ${PROG_URL}"
                 cd $PROGPATH
+                cp ./$PROGNAME ./$PROGNAME.backup
                 wget_cmd="wget $PROG_URL -O - > $PROGNAME.new"
                 echo_command $wget_cmd
                 eval $wget_cmd
