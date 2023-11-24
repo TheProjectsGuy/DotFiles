@@ -217,6 +217,19 @@ start_time_secs=$SECONDS
 echo_debug "---- Start time: $start_time ----"
 echo_info "------ Installing core packages ------"
 # Core packages using conda_install and conda_raw_install
+echo_info "Installing PyTorch"
+# Find if NVIDIA GPU
+#   From: https://stackoverflow.com/a/66613797/5836037
+gpu=$(lspci | grep -i '.* vga .* nvidia .*')
+if [[ "${gpu^^}" == *' NVIDIA '* ]]; then
+    echo_debug "Found NVIDIA GPU"
+    conda_raw_install pytorch torchvision torchaudio pytorch-cuda=11.8 \
+        -c pytorch -c nvidia
+else
+    echo_debug "Couldn't find NVIDIA GPU, installing PyTorch CPU"
+    conda_raw_install pytorch torchvision torchaudio cpuonly -c pytorch
+fi
+conda_install -c conda-forge einops
 # Core packages using pip_install
 if [ $dev_tools == "true" ]; then 
     echo_info "------ Installing documentation and packaging tools ------"
