@@ -38,4 +38,14 @@
     "[restructuredtext]": {
         "editor.wordWrap": "on",
     },
+    // Spelling
+    //  From: https://streetsidesoftware.com/vscode-spell-checker/docs/configuration/
+    "cSpell.customDictionaries": {
+        "custom-dictionary-folder-lidar-external-object-detection": {
+            "name": "custom-dictionary-folder-lidar-external-object-detection",
+            "path": "${workspaceFolder:LiDAR External Object Detection}/.cspell/custom-dictionary-folder-lidar-external-object-detection.txt",
+            "addWords": true,
+            "scope": "folder"
+        }
+    },
 }
