@@ -1,0 +1,52 @@
+{
+    /*
+        See https://code.visualstudio.com/docs/editor/workspaces
+        Also:
+        - https://stackoverflow.com/a/57134632/5836037
+        - https://code.visualstudio.com/docs/editor/multi-root-workspaces#_settings
+    */
+    // Folders (don't change section when workspace is active, editor reloads)
+    "folders": [
+        // Only if you need this (include only subfolders otherwise)
+        // {
+        //     "name": "Workspace (Root)",
+        //     "path": "."
+        // },
+        {
+            "name": "GitHub README",
+            "path": ".github"
+        },
+        {
+            "name": "LiDAR External Object Detection",
+            "path": "lidar_ext_od_benchmark",
+        },
+        {
+            "name": "Previous Experiments",
+            "path": "prev_experiments"
+        },
+    ],
+    // Shared settings across all workspaces (roots folders)
+    "settings": {
+        "editor.lineNumbers": "relative",
+        // Avoid git prompts (if parent workspace is a git repository with submodules)
+        "git.openRepositoryInParentFolders": "never",
+        "[shellscript]": {
+            "files.eol": "\n",
+            "editor.rulers": [75, 80]
+        },
+        "[python]": {
+            // See: https://peps.python.org/pep-0008/#maximum-line-length
+            "editor.wordBasedSuggestions": false,
+            "editor.rulers": [70, 90],
+            // Force 1 tab = 4 spaces
+            "editor.detectIndentation": false,
+            "editor.tabSize": 4,
+            "editor.insertSpaces": true,
+            // Do not trim whitespaces
+            "editor.trimAutoWhitespace": false,
+        },
+        "python.defaultInterpreterPath": "/scratch/avneesh/mambaforge/envs/sod/bin/python",
+        // Do not source/activate python environment
+        // "python.terminal.activateEnvironment": false,
+    }
+}
