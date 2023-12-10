@@ -38,6 +38,24 @@
             },
             "keys": "ctrl+shift+t"
         },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "down",
+                "splitMode": "duplicate"
+            },
+            "keys": "alt+shift+o"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "right",
+                "splitMode": "duplicate"
+            },
+            "keys": "alt+shift+e"
+        },
         // Toggle the zoom (make pane full screen)
         {
             "command": "togglePaneZoom",
