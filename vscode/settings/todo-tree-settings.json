@@ -11,13 +11,20 @@
         "[x]",
         "DEBUG",
         "NOW",
-        "WARN"
+        "WARN",
+        "WIP",
     ],
     "todo-tree.highlights.customHighlight": {
         "DEBUG": {
             "foreground": "#808080",
             // "background": "#000"
-        }
+        },
+        "WIP": {
+            "icon": "alert"
+        },
+        "TODO": {
+            "icon": "list-unordered"
+        },
     },
     // In case you want to use the highlighting of todo-highlight
     "todo-tree.highlights.enabled": false,
