@@ -13,6 +13,8 @@
     "editor.trimAutoWhitespace": false,
     // Relative line numbers (like in neovim)
     "editor.lineNumbers": "relative",
+    // Treat underscore "_" as a word separator
+    "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?_",
     // JSON has comments
     "files.associations": {
         "*.json": "jsonc"
