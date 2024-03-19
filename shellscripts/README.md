@@ -24,6 +24,7 @@ This folder has the following files
 | 3 | [kill_user.sh](./kill_user.sh) | Kill all processes of a user |
 | 4 | [env_setup.sh](./env_setup.sh) | A python environment setup starter script, mainly for python projects using mamba, conda, and/or pip. |
 | 5 | [starter_template.sh](./starter_template.sh) | A starter script for writing shell scripts |
+| 6 | [myip.sh](./myip.sh) | A simple shell script to get IP address using [icanhazip](https://blog.apnic.net/2021/06/17/how-a-small-free-ip-tool-survived/) |
 
 This folder has the following folders
 
