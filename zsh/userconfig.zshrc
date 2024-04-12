@@ -42,6 +42,17 @@ alias pwdclip="pwd | tr -d '\n' | cpclip"
 alias pwdopen="xdg-open $PWD 2> /dev/null"
 # If you want to use neovim (default editor) with crontab
 alias crontab="export VISUAL$EDITOR; crontab"
+# Use neovim instead of vim
+alias vi="nvim"
+# TL;DR colors
+alias tldr="tldr --theme base16"
+# Tmux sessions
+alias tmux="tmux -u"
+# Mamba aliases
+alias mi="mamba-init"    
+alias ma="mamba activate"    
+alias mima="mamba-init && mamba activate"    
+alias mami="mima"
 # -----------------------------------------
 
 # ------ RRC Simulation Servers (IIIT Hyderabad) ------ 
