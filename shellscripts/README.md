@@ -25,6 +25,8 @@ This folder has the following files
 | 4 | [env_setup.sh](./env_setup.sh) | A python environment setup starter script, mainly for python projects using mamba, conda, and/or pip. |
 | 5 | [starter_template.sh](./starter_template.sh) | A starter script for writing shell scripts |
 | 6 | [myip.sh](./myip.sh) | A simple shell script to get IP address using [icanhazip](https://blog.apnic.net/2021/06/17/how-a-small-free-ip-tool-survived/) |
+| 7 | [myip.py](./myip.py) | A better wrapper around `myip` script to get IP addresses (both public and system/private). |
+| 8 | [password_generator.py](./password_generator.py) | Generate a random password (uses system python) |
 
 This folder has the following folders
 
