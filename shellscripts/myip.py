@@ -2,11 +2,14 @@
 """
     Return the IP addresses (both public and private).
     
-    Heavily uses regular expressions (see [1] for help). Uses
-    icanhazip for public IP address (see [2])
+    Heavily uses regular expressions (see [1] for help). 
+    Uses icanhazip for public IP address (see [2]).
+    Flag descriptionns can be found under "SIOCGIFFLAGS, SIOCSIFFLAGS"
+    at [3].
     
     [1]: https://regex101.com/
     [2]: https://blog.apnic.net/2021/06/17/how-a-small-free-ip-tool-survived/
+    [3]: https://man7.org/linux/man-pages/man7/netdevice.7.html
 """
 
 # %%
