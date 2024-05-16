@@ -23,7 +23,7 @@
         "<C-t>": false,
         // Split horizontal (Ctrl+K Ctrl+\)
         "<C-k>": false,
-        // Open file (Ctrl+p)
+        // Open file and command palette (Ctrl+p)
         "<C-p>": false,
     },
     // Sync the system clipboard as default register in Vim
