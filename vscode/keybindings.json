@@ -54,5 +54,16 @@
     {
         "key": "ctrl+b g",
         "command": "workbench.files.action.collapseExplorerFolders"
-    }
+    },
+    // Bookmarks extension
+    {
+        "key": "ctrl+b j",
+        "command": "bookmarks.jumpToNext",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+b k",
+        "command": "bookmarks.jumpToPrevious",
+        "when": "editorTextFocus"
+    },
 ]

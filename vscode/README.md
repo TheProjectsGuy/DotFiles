@@ -48,6 +48,7 @@ A list of my commonly used extensions
 | [vscode-icons-team.vscode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons) | Icons for folders and other entities |
 | [Gruntfuggly.todo-tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree) | List `TODO` or other tag items in a sidebar |
 | [wayou.vscode-todo-highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight) | Highlight `TODO`, `FIXME`, and more. Use this or `Gruntfuggly.todo-tree` |
+| [alefragnani.Bookmarks](https://marketplace.visualstudio.com/items?itemName=alefragnani.Bookmarks) | Useful for persistent line bookmarks |
 | [stkb.rewrap](https://marketplace.visualstudio.com/items?itemName=stkb.rewrap) | Rewrap long comments into blocks of fixed width |
 | [bierner.markdown-emoji](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-emoji) | Emojis in Markdown (works in preview, GitHub) |
 | [amazonwebservices.aws-toolkit-vscode](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-toolkit-vscode) | AWS tools |
