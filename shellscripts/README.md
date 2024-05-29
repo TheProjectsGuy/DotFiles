@@ -27,6 +27,7 @@ This folder has the following files
 | 6 | [myip.sh](./myip.sh) | A simple shell script to get IP address using [icanhazip](https://blog.apnic.net/2021/06/17/how-a-small-free-ip-tool-survived/) |
 | 7 | [myip.py](./myip.py) | A better wrapper around `myip` script to get IP addresses (both public and system/private). |
 | 8 | [password_generator.py](./password_generator.py) | Generate a random password (uses system python) |
+| 9 | [mount_personal_dropbox.sh](./mount_personal_dropbox.sh) | Mount personal DropBox. See [rclone docs](https://rclone.org/dropbox/). You could use the [official Dropbox installer for Linux](https://www.dropbox.com/install), but it uses more storage in the sync process. |
 
 This folder has the following folders
 
@@ -39,4 +40,4 @@ The following is deprecated
 
 | S. No. | Script name | Description |
 | :----- | :---------- | :---------- |
-| 1 | [mount_personal_dropbox.sh](./mount_personal_dropbox.sh) | ~~Mount personal DropBox. See [rclone docs](https://rclone.org/dropbox/).~~ Use the [official Dropbox installer for Linux](https://www.dropbox.com/install) |
+| 1 | [mount_personal_dropbox.sh](./mount_personal_dropbox.sh) | ~~Mount personal DropBox. See [rclone docs](https://rclone.org/dropbox/).~~ Use  |

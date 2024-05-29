@@ -1,14 +1,13 @@
 #!/bin/bash
 # Folder name
-db_folder="/mnt/Dropbox/"
+dropbox_folder="/home/avneesh/Dropbox"
 
 # Unmount using fusermount
-#fusermount -u /mnt/Dropbox
+#fusermount -u /home/avneesh/Dropbox
 
-# Mount the dropbox drive
-if [ -z "$(ls -A ${db_folder})" ]; then
-    rclone mount Personal-Dropbox:/ ${db_folder} --daemon
+# Mount the rclone remote
+if [ -z "$(ls -A ${dropbox_folder})" ]; then
+    rclone mount "Personal-Dropbox":/ ${dropbox_folder} --daemon
 else
-    echo "Mount directory ${db_folder} not empty"
+    echo "Mount directory ${dropbox_folder} not empty"
 fi
-
