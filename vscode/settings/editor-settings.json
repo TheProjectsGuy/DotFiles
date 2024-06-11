@@ -52,7 +52,7 @@
         "files.eol": "\n",
         "editor.rulers": [75, 80]
     },
-    "[html, javascript]": {
+    "[html][javascript]": {
         "editor.tabSize": 2,
         "editor.insertSpaces": true,
     }
