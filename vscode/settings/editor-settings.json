@@ -23,23 +23,9 @@
     "editor.bracketPairColorization.enabled": true,
     // Sticky scrolling (function context)
     "editor.stickyScroll.enabled": true,
-    // Settings for some languages
-    // Dockerfile
-    "[dockerfile]": {
-        "editor.rulers": [80]
-    },
-    // Bash scripts
-    "[shellscript]": {
-        "files.eol": "\n",
-        "editor.rulers": [75, 80]
-    },
     // Remote SSH (if not working properly)
     //  From: https://github.com/microsoft/vscode-remote-release/issues/6521#issuecomment-1102971821
     "remote.SSH.useLocalServer": false,
-    // reStructuredText files
-    "[restructuredtext]": {
-        "editor.wordWrap": "on",
-    },
     // Spelling
     //  From: https://streetsidesoftware.com/vscode-spell-checker/docs/configuration/
     "cSpell.customDictionaries": {
@@ -50,4 +36,24 @@
             "scope": "folder"
         }
     },
+    /*
+        Preferences for file types (languages)
+    */
+    // reStructuredText files
+    "[restructuredtext]": {
+        "editor.wordWrap": "on",
+    },
+    // Dockerfile
+    "[dockerfile]": {
+        "editor.rulers": [80]
+    },
+    // Bash scripts
+    "[shellscript]": {
+        "files.eol": "\n",
+        "editor.rulers": [75, 80]
+    },
+    "[html, javascript]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+    }
 }
