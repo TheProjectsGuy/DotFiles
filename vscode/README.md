@@ -34,6 +34,7 @@ A list of my commonly used extensions
 | [ms-iot.vscode-ros](https://marketplace.visualstudio.com/items?itemName=ms-iot.vscode-ros) | ROS work |
 | [ms-toolsai.jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) | Jupyter notebook in interactive python scripts (with markdown support for docs) |
 | [ms-vscode.cpptools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) | All common C++ development tools, you may want to check the [extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack) |
+| [formulahendry.code-runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner) | Run all types of code files (useful for debugging) |
 | [yzhang.markdown-all-in-one](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one) | All things related to markdown content |
 | [James-Yu.latex-workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) | Everything LaTeX related through VSCode (more granular control than [overleaf](https://www.overleaf.com/)). Requires TeX or MikTex setup along with some pearl libraries for backend |
 | [lextudio.restructuredtext](https://marketplace.visualstudio.com/items?itemName=lextudio.restructuredtext) | Extension for reStructuredText (rst) |
