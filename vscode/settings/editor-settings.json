@@ -55,5 +55,13 @@
     "[html][javascript]": {
         "editor.tabSize": 2,
         "editor.insertSpaces": true,
-    }
+    },
+    "[latex][bibtex]": {
+        "editor.formatOnPaste": false,
+        "editor.suggestSelection": "recentlyUsedByPrefix",
+        "editor.wordWrap": "bounded",
+        "editor.wordWrapColumn": 80,
+        "editor.rulers": [75],
+        "rewrap.wrappingColumn": 75
+    },
 }
