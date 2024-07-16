@@ -18,6 +18,7 @@
         'typeable' characters (letters, digits, special characters,
         punctuation, etc.). This suits most requirements for password
         strength.
+    4. "number" password: Contains only digits (0-9).
     
     The program uses the following environment variables:
     - PWGEN_DEFAULT_TYPE: Default type of the password. Default is
@@ -57,7 +58,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__, 
             formatter_class=BetterFormatter)
     parser.add_argument("-t", "--type", choices=["urlsafe", "hyphen",
-            "random"], help="Type of the password", 
+            "random", "number"], help="Type of the password", 
             default=os.getenv("PWGEN_DEFAULT_TYPE", "urlsafe"))
     parser.add_argument("-l", "--len", choices=["short", "medium", 
             "long"], help="Length of the password", 
@@ -146,6 +147,21 @@ def get_random_passwd(length: str = "medium"):
 
 
 # %%
+def get_number_passwd(length: str = "medium"):
+    if length == "long":
+        length = 22
+    elif length == "medium":
+        length = 10
+    elif length == "short":
+        length = 4
+    else:
+        raise ValueError(f"Unknown {length = }. Should be 'long', "\
+                            "'medium', or 'short'")
+    chr_choices = string.digits
+    return random_choice(chr_choices, length)
+
+
+# %%
 if __name__ == "__main__":
     args = parse_args()
     if args.type == "urlsafe":
@@ -154,6 +170,8 @@ if __name__ == "__main__":
         passwd = get_hyphen_passwd(args.len, args.extra)
     elif args.type == "random":
         passwd = get_random_passwd(args.len)
+    elif args.type == "number":
+        passwd = get_number_passwd(args.len)
     else:
         raise ValueError(f"Unknown {args.type = }. Should be "\
                 "'urlsafe', 'hyphen', or 'random'")
