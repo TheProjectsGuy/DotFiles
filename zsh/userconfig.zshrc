@@ -55,6 +55,18 @@ alias mima="mamba-init && mamba activate"
 alias mami="mima"
 # -----------------------------------------
 
+# -------------------- Functions --------------------
+# Open VSCode (and check if a path is passed)
+function c() {
+    if [[ "$1" ]]; then
+        open_dir=$1
+    else
+        open_dir=$(pwd)
+    fi
+    code $open_dir
+}
+# ---------------------------------------------------
+
 # ------ RRC Simulation Servers (IIIT Hyderabad) ------ 
 export USER_RRC="avneesh.mishra"
 function link-rrc-sys() {
