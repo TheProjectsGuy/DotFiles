@@ -42,11 +42,15 @@ def run_command(command, no_error:bool = True):
 # %%
 if __name__ == "__main__":
     # Get public-facing IP addresses
-    ipv4_addr = run_command("curl --ipv4 icanhazip.com")[:-1]
-    ipv6_addr = run_command("curl --ipv6 icanhazip.com")[:-1]
-    print("----------- Public IP addresses -----------")
-    print(f"IPv4 address: {ipv4_addr}")
-    print(f"IPv6 address: {ipv6_addr}")
+    try:
+        ipv4_addr = run_command("curl -m 5 --ipv4 icanhazip.com")[:-1]
+        ipv6_addr = run_command("curl -m 5 --ipv6 icanhazip.com")[:-1]
+        print("----------- Public IP addresses -----------")
+        print(f"IPv4 address: {ipv4_addr}")
+        print(f"IPv6 address: {ipv6_addr}")
+    except ValueError as err:
+        print(f"Error: {err}")
+        print("Could not get the public facing IP addresses")
     # Get internal IP addresses
     ifaces = run_command("ip addr | awk '/^[0-9]+:/{print $2}'")[:-1]
     ifaces = [iface[:-1] for iface in ifaces.split("\n")]
