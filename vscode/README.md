@@ -42,6 +42,7 @@ A list of my commonly used extensions
 | [DavidAnson.vscode-markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) | Markdown linting |
 | [donjayamanne.githistory](https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory) | View `git` history, commits, graphs, etc. |
 | [eamodio.gitlens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) | GitLens - Git supercharged. Excellent git features (line blame, file history, etc.) |
+| [NVIDIA.nsight-vscode-edition](https://marketplace.visualstudio.com/items?itemName=NVIDIA.nsight-vscode-edition) | For CUDA development. |
 | [mads-hartmann.bash-ide-vscode](https://marketplace.visualstudio.com/items?itemName=mads-hartmann.bash-ide-vscode) | Bash IDE support (variables, outline, etc.). Excellent for shell scripting. |
 | [streetsidesoftware.code-spell-checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) | Software to check spellings |
 | [oderwat.indent-rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow) | For colored indentation guides |
