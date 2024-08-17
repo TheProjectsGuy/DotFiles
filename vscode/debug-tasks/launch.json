@@ -13,6 +13,20 @@
                 "--input", "${input:mediaFileInput}",
                 "--outpath", "${input:mediaOutDir}",
             ]
+        },
+        {
+            // C++ configs: https://code.visualstudio.com/docs/cpp/launch-json-reference
+            "name": "C++ Build and Debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.out",
+            "args": [],
+            "stopAtEntry": false,
+            "MIMode": "gdb",
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "preLaunchTask": "g++ build current",
         }
     ],
     // See https://code.visualstudio.com/docs/editor/variables-reference#_input-variables
