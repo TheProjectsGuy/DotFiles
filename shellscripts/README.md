@@ -28,6 +28,7 @@ This folder has the following files
 | 7 | [myip.py](./myip.py) | A better wrapper around `myip` script to get IP addresses (both public and system/private). |
 | 8 | [password_generator.py](./password_generator.py) | Generate a random password (uses system python) |
 | 9 | [mount_personal_dropbox.sh](./mount_personal_dropbox.sh) | Mount personal DropBox. See [rclone docs](https://rclone.org/dropbox/). You could use the [official Dropbox installer for Linux](https://www.dropbox.com/install), but it uses more storage in the sync process. |
+| 10 | [cppdbg.sh](./cppdbg.sh) | A shorthand script to invoke `g++` and `gdb` for C++ codes |
 
 This folder has the following folders
 
