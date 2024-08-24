@@ -53,6 +53,7 @@ A list of my commonly used extensions
 | [alefragnani.Bookmarks](https://marketplace.visualstudio.com/items?itemName=alefragnani.Bookmarks) | Useful for persistent line bookmarks |
 | [stkb.rewrap](https://marketplace.visualstudio.com/items?itemName=stkb.rewrap) | Rewrap long comments into blocks of fixed width |
 | [bierner.markdown-emoji](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-emoji) | Emojis in Markdown (works in preview, GitHub) |
+| [DivyanshuAgrawal.competitive-programming-helper](https://marketplace.visualstudio.com/items?itemName=DivyanshuAgrawal.competitive-programming-helper) | To copy problem statements from a CP website into VSCode. Use with [competitive-companion](https://github.com/jmerle/competitive-companion) browser extension to import statements and work on them locally. |
 | [amazonwebservices.aws-toolkit-vscode](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-toolkit-vscode) | AWS tools |
 | [znck.grammarly](https://marketplace.visualstudio.com/items?itemName=znck.grammarly) | Grammarly integration for proper writing |
 
