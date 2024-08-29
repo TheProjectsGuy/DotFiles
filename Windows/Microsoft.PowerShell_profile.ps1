@@ -21,6 +21,21 @@ Function New-File {
     New-Item -Type File -Name $FileName
 }
 Set-Alias touch New-File
+Function CPP-Debug {
+    param (
+        $FileName
+    )
+    if ($FileName -eq "clear" -Or $FileName -eq "clean") {
+        echo "Clearing all intermediate files"
+        Get-ChildItem -Path . -Recurse -Include "*.ii", "*.o", "*.s", "*.out", "out" -Force -Verbose | Remove-Item -Force -Recurse -Verbose
+    } else {
+        echo "Building $FileName"
+        g++ -Wall -save-temps -g $FileName -o a.out
+        echo "Debugging $FileName using a.out"
+        gdb a.out
+    }
+}
+Set-Alias cppdbg CPP-Debug
 
 # === Ada commands ===
 $USER_ADA = "avneesh.mishra"
