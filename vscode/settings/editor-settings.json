@@ -36,6 +36,8 @@
             "scope": "folder"
         }
     },
+    // Ignore searching for the CMakeLists file
+    "cmake.ignoreCMakeListsMissing": true,
     /*
         Preferences for file types (languages)
     */
