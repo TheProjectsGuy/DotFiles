@@ -27,9 +27,13 @@ def run_command(command, no_error:bool = True):
         This function returns the stdout of the `command`. Many 
         commands return a newline, a `[:-1]` will remove this.
     """
-    res: subprocess.CompletedProcess = subprocess.run(command, 
-            shell=True, executable="/bin/bash", 
-            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    try:
+        res: subprocess.CompletedProcess = subprocess.run(command, 
+                shell=True, executable="/bin/bash", 
+                stdout=subprocess.PIPE, stderr=subprocess.PIPE, 
+                timeout=2)
+    except subprocess.TimeoutExpired as err:
+        return f"Error: {err}"
     if res.returncode != 0 and no_error:
         err_msg: bytes = res.stderr
         msg: str = err_msg.decode("utf-8")
