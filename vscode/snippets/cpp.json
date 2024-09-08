@@ -1,0 +1,17 @@
+{
+	// Ref: https://code.visualstudio.com/docs/editor/userdefinedsnippets
+    "C++ Template for CodeForces and CP": {
+		"scope": "cpp",
+		"prefix": "cpt",
+		"body": [
+			"#include <iostream>",
+			"#include <bits/stdc++.h>",
+			"\nusing namespace std;\n",
+			"int main(int argc, char const *argv[]) {",
+    		"\t${1:/* code */}",
+			"\treturn 0;",
+			"}"
+		],
+		"description": "Template for competitive programming problems",
+	},
+}
