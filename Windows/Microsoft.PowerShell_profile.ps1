@@ -30,7 +30,8 @@ Function CPP-Debug {
         Get-ChildItem -Path . -Recurse -Include "*.ii", "*.o", "*.s", "*.out", "out" -Force -Verbose | Remove-Item -Force -Recurse -Verbose
     } else {
         echo "Building $FileName"
-        g++ -Wall -save-temps -I/Users/123av/include -g $FileName -o a.out
+        # g++ -H -Wall -save-temps -I/Users/123av/include -g $FileName -o a.out
+        g++ -Wall -save-temps -g $FileName -o a.out
         echo "Debugging $FileName using a.out"
         gdb a.out
     }

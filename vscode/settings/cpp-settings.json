@@ -1,0 +1,7 @@
+{
+    // Include the Strawberry Perl paths on Windows
+    "C_Cpp.default.includePath": [
+        // "/Users/123av/include"
+        "/Strawberry/c/lib/gcc/**"
+    ],
+}
