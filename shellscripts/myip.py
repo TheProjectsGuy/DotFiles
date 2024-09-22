@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Get IP address
 """
     Return the IP addresses (both public and private).
@@ -46,15 +47,19 @@ def run_command(command, no_error:bool = True):
 # %%
 if __name__ == "__main__":
     # Get public-facing IP addresses
+    print("----------- Public IP addresses -----------")
     try:
         ipv4_addr = run_command("curl -m 5 --ipv4 icanhazip.com")[:-1]
-        ipv6_addr = run_command("curl -m 5 --ipv6 icanhazip.com")[:-1]
-        print("----------- Public IP addresses -----------")
         print(f"IPv4 address: {ipv4_addr}")
+    except ValueError as err:
+        print(f"Error: {err}")
+        print("Could not get the public facing IPv4 addresses")
+    try:
+        ipv6_addr = run_command("curl -m 5 --ipv6 icanhazip.com")[:-1]
         print(f"IPv6 address: {ipv6_addr}")
     except ValueError as err:
         print(f"Error: {err}")
-        print("Could not get the public facing IP addresses")
+        print("Could not get the public facing IPv6 addresses")
     # Get internal IP addresses
     ifaces = run_command("ip addr | awk '/^[0-9]+:/{print $2}'")[:-1]
     ifaces = [iface[:-1] for iface in ifaces.split("\n")]
