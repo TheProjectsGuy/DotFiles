@@ -1,28 +1,49 @@
 #!/bin/bash
 # Build and debug a C++ source code file
 
-fname="${1:-main.cpp}"
+ind_files=("${@:-main.cpp}")
 
 # Check if fname is "clean" or "clear"
-if [[ "$fname" = "clean" || "$fname" = "clear" ]]; then
+if [[ "${ind_files[0]}" = "clean" || "${ind_files[0]}" = "clear" ]]; then
     echo "Clearing temporary build files"
     echo '> find . -type f -regextype posix-extended -regex ".*(\.(ii|o|s|out)|out)" -exec rm -vf {} \;'
     find . -type f -regextype posix-extended -regex ".*(\.(ii|o|s|out)|out)" -exec rm -vf {} \;
     exit 0
 fi
 
+# fname="${1:-main.cpp}"
+fname=""
+for file in "${ind_files[@]}"; do
+    # Individual filename
+    ifname=$(realpath $file)
+    if [ ! -f "$ifname" ]; then
+        echo "File not found: $ifname"
+        exit 1
+    fi
+    fname+="$ifname "
+done
+
 # Real file (to be built)
-fname=$(realpath $fname)
-echo "File name: $fname"
-if [ ! -f "$fname" ]; then
-    echo "File not found: $fname"
+echo "Source file name(s): $fname"
+
+# Run build
+build_command="g++ -Wall -save-temps -g $fname -o a.out"
+echo "> $build_command"
+$build_command
+ec=$?
+if [ $ec != "0" ]; then
+    echo "Some error happened when running the previous command"
+    echo "Exit code: $ec"
     exit 1
 fi
 
-# Run build
-echo "> g++ -Wall -save-temps -g $fname -o a.out"
-g++ -Wall -save-temps -g $fname -o a.out
-
 # Run debug
-echo "> gdb a.out"
-gdb a.out
+run_command="gdb a.out"
+echo "> $run_command"
+$run_command
+ec=$?
+if [ $ec != 0 ]; then
+    echo "Some error happened when running the previous command"
+    echo "Exit code: $ec"
+    exit 1
+fi

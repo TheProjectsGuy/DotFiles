@@ -14,4 +14,25 @@
 		],
 		"description": "Template for competitive programming problems",
 	},
+	"Guard code for header files": {
+		"scope": "cpp",
+		"prefix": "hguard",
+		"body": [
+			"#ifndef ${RELATIVE_FILEPATH/(\\w+)(\\W+)|(\\w+)$/${1:/upcase}${2:+_}${3:/upcase}${3:+_}/g}",
+			"#define ${RELATIVE_FILEPATH/(\\w+)(\\W+)|(\\w+)$/${1:/upcase}${2:+_}${3:/upcase}${3:+_}/g}",
+			"",
+			"$0",
+			"",
+			"#endif ${LINE_COMMENT} ${RELATIVE_FILEPATH/(\\w+)(\\W+)|(\\w+)$/${1:/upcase}${2:+_}${3:/upcase}${3:+_}/g}"
+		],
+		"description": "Creates a C++ header guard"
+	},
+	"C++ Namespace": {
+        "prefix": "namespace",
+        "body": [
+            "namespace ${1:identifier} {",
+			"",
+            "} // namespace $1"
+        ]
+    }
 }

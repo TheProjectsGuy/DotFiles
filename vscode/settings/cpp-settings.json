@@ -1,7 +1,14 @@
+// Also see c_cpp_properties.json
 {
-    // Include the Strawberry Perl paths on Windows
+    // Include the Strawberry Perl paths (for Windows only)
     "C_Cpp.default.includePath": [
         // "/Users/123av/include"
         "/Strawberry/c/lib/gcc/**"
     ],
+    // Configure the compiler
+    "C_Cpp.default.compilerPath": "/usr/bin/g++",
+    // Ignore asking for CMakeLists.txt
+    "cmake.ignoreCMakeListsMissing": true,
+    // Error (source file)
+    "C_Cpp.errorSquiggles": "disabled",
 }

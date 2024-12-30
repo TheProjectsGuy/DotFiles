@@ -60,7 +60,8 @@ Setup `nvim` as above. Use the [JetBrainsMono Nerd Font](https://www.nerdfonts.c
 cp -r ~/.config/nvim ~/.config/nvim-before-nvchad
 cp -r ~/.local/share/nvim ~/.local/share/nvim-before-nvchad
 # Main install
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+# git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1   # Old command (do not use)
+git clone https://github.com/NvChad/starter ~/.config/nvim
 nvim
 ```
 
