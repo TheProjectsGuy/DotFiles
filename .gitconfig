@@ -1,0 +1,6 @@
+# Meld mergetool (`gmtl --tool meld`)
+#  From: https://stackoverflow.com/a/34119867
+[mergetool "meld"]
+    # Choose one of these two lines (not both!) - use the first.
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+    cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
