@@ -27,6 +27,8 @@
         "<C-p>": false,
         // Terminal window
         "<C-j>": false,
+        // Add snippet to chat context
+        "<C-l>": false,
     },
     // Sync the system clipboard as default register in Vim
     "vim.useSystemClipboard": true
