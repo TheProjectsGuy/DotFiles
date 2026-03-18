@@ -25,6 +25,8 @@
         "<C-k>": false,
         // Open file and command palette (Ctrl+p)
         "<C-p>": false,
+        // Terminal window
+        "<C-j>": false,
     },
     // Sync the system clipboard as default register in Vim
     "vim.useSystemClipboard": true
